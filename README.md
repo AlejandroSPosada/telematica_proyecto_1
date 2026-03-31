@@ -9,9 +9,9 @@
 ## Integrantes del Equipo
 
 - Alejandro Sepúlveda Posada
-- Jacobo
-- Sofía Aceros
-- Paula Arroyave
+- Jacobo Giraldo Zuluaga
+- Laura Sofía Aceros Monsalve
+- Paula Andrea Arroyave Acevedo
 
 ## Descripción General
 
