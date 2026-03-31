@@ -159,7 +159,7 @@ Los registros se muestran en consola y se almacenan en un archivo de logs.
 ```
 proyecto1/
 ├── README.md                 # Este archivo
-├── PROYECTO.md              # Especificación del proyecto
+├── PROYECTO.pdf             # Especificación del proyecto
 ├── PROTOCOLO.md             # Especificación del protocolo de aplicación
 ├── server/                  # Código del servidor (C)
 │   ├── server.c
