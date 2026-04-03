@@ -44,7 +44,7 @@ class Sensor:
 
         # Formato esperado: RESPONSE 200 <sensor_id> Sensor registered correctly
         parts = response.strip().split(" ")
-        if len(parts) >= 3 and parts[0] == "RESPONSE" and parts[1] == "200":
+        if len(parts) >= 2 and parts[0] == "RESPONSE" and parts[1] == "200":
             self.sensor_id = parts[2]
             self.state = "CONNECTED"
             print(f"[{self.sensor_type}] Registrado con ID: {self.sensor_id}")
