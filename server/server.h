@@ -14,9 +14,13 @@
 #define MAX_HISTORY     100
 #define MAX_ALERTS      100
 
-#define TIMEOUT_IDLE_SEC    30
-#define TIMEOUT_OFFLINE_SEC 30
+#define TIMEOUT_IDLE_SEC    5
+#define TIMEOUT_OFFLINE_SEC 10
 #define MAX_SENSOR_TYPES    10
+
+// Auth service configuration (resolved via DNS, no hardcoded IPs)
+#define AUTH_SERVICE_HOST "localhost"
+#define AUTH_SERVICE_PORT 9090
 
 // Threshold definitions per sensor type
 typedef struct {
@@ -76,6 +80,10 @@ void broadcast_alert_to_operators(const char *alert_msg);
 
 // Thresholds
 const threshold_t *get_threshold(const char *sensor_type);
+
+// External auth service
+// Returns 1 if valid, 0 if invalid. Writes role to role_out (e.g. "OPERATOR", "SENSOR").
+int validate_credentials(const char *username, const char *password, char *role_out, int role_size);
 
 // Logging
 void log_event(client_t *client, const char *received, const char *sent);

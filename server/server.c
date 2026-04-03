@@ -5,6 +5,7 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <netdb.h>
 #include <pthread.h>
 #include <arpa/inet.h>
 #include "server.h"
@@ -46,6 +47,112 @@ const threshold_t *get_threshold(const char *sensor_type) {
         }
     }
     return NULL;
+}
+
+//--------------------------------------------------------------------------------------------------------------------
+// External auth service client
+// Connects to AUTH_SERVICE_HOST:AUTH_SERVICE_PORT via DNS resolution,
+// sends GET /validate?user=X&pass=Y, parses JSON response.
+// Returns 1 if valid, 0 if invalid or on error.
+int validate_credentials(const char *username, const char *password, char *role_out, int role_size) {
+    if (!username || !password) return 0;
+
+    role_out[0] = '\0';
+
+    // Resolve hostname via DNS (no hardcoded IPs)
+    char port_str[8];
+    snprintf(port_str, sizeof(port_str), "%d", AUTH_SERVICE_PORT);
+
+    struct addrinfo hints = {0}, *res = NULL;
+    hints.ai_family = AF_INET;
+    hints.ai_socktype = SOCK_STREAM;
+
+    int gai_err = getaddrinfo(AUTH_SERVICE_HOST, port_str, &hints, &res);
+    if (gai_err != 0) {
+        fprintf(stderr, "AUTH: DNS resolution failed for %s: %s\n",
+                AUTH_SERVICE_HOST, gai_strerror(gai_err));
+        return 0;
+    }
+
+    int sock = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
+    if (sock < 0) {
+        perror("AUTH: socket");
+        freeaddrinfo(res);
+        return 0;
+    }
+
+    // Set a timeout so we don't block forever if auth service is down
+    struct timeval tv = { .tv_sec = 3, .tv_usec = 0 };
+    setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv));
+    setsockopt(sock, SOL_SOCKET, SO_SNDTIMEO, &tv, sizeof(tv));
+
+    if (connect(sock, res->ai_addr, res->ai_addrlen) < 0) {
+        perror("AUTH: connect");
+        close(sock);
+        freeaddrinfo(res);
+        return 0;
+    }
+    freeaddrinfo(res);
+
+    // Build HTTP GET request
+    char request[512];
+    snprintf(request, sizeof(request),
+        "GET /validate?user=%s&pass=%s HTTP/1.1\r\n"
+        "Host: %s:%d\r\n"
+        "Connection: close\r\n"
+        "\r\n",
+        username, password, AUTH_SERVICE_HOST, AUTH_SERVICE_PORT);
+
+    if (send(sock, request, strlen(request), 0) < 0) {
+        perror("AUTH: send");
+        close(sock);
+        return 0;
+    }
+
+    // Read full response
+    char resp[2048] = {0};
+    int total = 0;
+    while (total < (int)sizeof(resp) - 1) {
+        ssize_t n = recv(sock, resp + total, sizeof(resp) - 1 - total, 0);
+        if (n <= 0) break;
+        total += n;
+    }
+    close(sock);
+
+    if (total <= 0) {
+        fprintf(stderr, "AUTH: empty response from auth service\n");
+        return 0;
+    }
+
+    printf("DEBUG: auth service response (%d bytes)\n", total);
+    fflush(stdout);
+
+    // Find JSON body after HTTP headers
+    char *body = strstr(resp, "\r\n\r\n");
+    if (!body) return 0;
+    body += 4;
+
+    // Simple JSON parsing — look for "valid": true/false and "role": "..."
+    int valid = 0;
+    if (strstr(body, "\"valid\": true") || strstr(body, "\"valid\":true")) {
+        valid = 1;
+    }
+
+    if (valid) {
+        char *role_start = strstr(body, "\"role\":");
+        if (role_start) {
+            role_start = strchr(role_start, ':') + 1;
+            while (*role_start == ' ' || *role_start == '"') role_start++;
+            int i = 0;
+            while (role_start[i] && role_start[i] != '"' && i < role_size - 1) {
+                role_out[i] = role_start[i];
+                i++;
+            }
+            role_out[i] = '\0';
+        }
+    }
+
+    return valid;
 }
 
 //--------------------------------------------------------------------------------------------------------------------
@@ -414,11 +521,18 @@ int handle_auth(client_t *client, char *username, char *password, char *response
         return 1;
     }
 
-    // Placeholder: accept any credentials for now
-    int auth_ok = 1;
+    // Validate credentials against external auth service
+    char role[32] = {0};
+    int auth_ok = validate_credentials(username, password, role, sizeof(role));
 
     if (!auth_ok) {
         snprintf(response, response_size, "RESPONSE 401 - Could not authenticate user\n");
+        return 1;
+    }
+
+    // Only OPERATOR role can use AUTH (sensors use REGISTER/CONNECT)
+    if (strcmp(role, "OPERATOR") != 0) {
+        snprintf(response, response_size, "RESPONSE 403 - User is not an operator\n");
         return 1;
     }
 

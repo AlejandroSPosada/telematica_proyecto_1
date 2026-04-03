@@ -340,9 +340,15 @@ static void *handle_http_client(void *arg) {
             close(client_fd);
             return NULL;
         }
-        // Placeholder: accept any non-empty credentials
-        // Wire up to external auth service later
-        if (strlen(username) == 0) {
+        // Validate against external auth service
+        char role[32] = {0};
+        if (!validate_credentials(username, password, role, sizeof(role))) {
+            http_send_401(client_fd);
+            close(client_fd);
+            return NULL;
+        }
+        // Only operators can access the web dashboard
+        if (strcmp(role, "OPERATOR") != 0) {
             http_send_401(client_fd);
             close(client_fd);
             return NULL;
