@@ -8,6 +8,7 @@
 #include <pthread.h>
 #include <arpa/inet.h>
 #include "server.h"
+#include "http_server.h"
 
 
 static sensor_t *sensors[MAX_SENSORS] = {0};
@@ -26,6 +27,26 @@ static pthread_mutex_t alert_mutex = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t log_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 FILE *log_file;
+
+//--------------------------------------------------------------------------------------------------------------------
+// Sensor type thresholds (lower, upper)
+static const threshold_t sensor_thresholds[] = {
+    { "temperature",  -40.0,   125.0  },   // °C
+    { "pressure",       0.0,  1100.0  },   // hPa
+    { "vibration",      0.0,    50.0  },   // mm/s
+    { "energy",         0.0, 10000.0  },   // W
+    { "humidity",       0.0,   100.0  },   // %
+};
+static const int threshold_count = sizeof(sensor_thresholds) / sizeof(sensor_thresholds[0]);
+
+const threshold_t *get_threshold(const char *sensor_type) {
+    for (int i = 0; i < threshold_count; i++) {
+        if (strcmp(sensor_thresholds[i].type, sensor_type) == 0) {
+            return &sensor_thresholds[i];
+        }
+    }
+    return NULL;
+}
 
 //--------------------------------------------------------------------------------------------------------------------
 // Alert management
@@ -471,7 +492,10 @@ int handle_read_batch(client_t *client, char **tokens, int token_count, char *re
     printf("DEBUG: handle_read_batch sensor=%d timestamp=%s count=%d\n", sensor_id, timestamp, reading_count);
     fflush(stdout);
 
-    // Store readings in ring buffer
+    // Store readings in ring buffer and check thresholds
+    const threshold_t *thresh = get_threshold(sensor->type);
+    int abnormal_count = 0;
+
     pthread_mutex_lock(&sensor_mutex);
     for (int i = 0; i < reading_count; i++) {
         reading_t *r = &sensor->history[sensor->history_index];
@@ -482,6 +506,34 @@ int handle_read_batch(client_t *client, char **tokens, int token_count, char *re
         sensor->history_index = (sensor->history_index + 1) % MAX_HISTORY;
         if (sensor->history_count < MAX_HISTORY) {
             sensor->history_count++;
+        }
+
+        // Check against thresholds
+        if (thresh && (r->value < thresh->lower || r->value > thresh->upper)) {
+            abnormal_count++;
+            char alert_msg[BUFFER_SIZE];
+            char alert_detail[128];
+            if (r->value < thresh->lower) {
+                snprintf(alert_detail, sizeof(alert_detail),
+                    "Reading %.2f below lower threshold %.2f", r->value, thresh->lower);
+            } else {
+                snprintf(alert_detail, sizeof(alert_detail),
+                    "Reading %.2f above upper threshold %.2f", r->value, thresh->upper);
+            }
+            snprintf(alert_msg, sizeof(alert_msg),
+                "ALERT %d ABNORMAL_READING %s\n", sensor->id, alert_detail);
+
+            // Must release sensor_mutex before calling store_alert/broadcast
+            // (they acquire alert_mutex/operator_mutex — avoid nested locks)
+            pthread_mutex_unlock(&sensor_mutex);
+
+            store_alert(sensor->id, "ABNORMAL_READING", alert_detail);
+            broadcast_alert_to_operators(alert_msg);
+
+            printf("DEBUG: sensor %d abnormal reading: %s\n", sensor->id, alert_detail);
+            fflush(stdout);
+
+            pthread_mutex_lock(&sensor_mutex);
         }
     }
 
@@ -497,8 +549,13 @@ int handle_read_batch(client_t *client, char **tokens, int token_count, char *re
     // Reset timeout back to the initial idle threshold
     set_recv_timeout(client->fd, TIMEOUT_IDLE_SEC);
 
-    snprintf(response, response_size, "RESPONSE 200 %d Batch received (%d readings)\n",
-             sensor->id, reading_count);
+    if (abnormal_count > 0) {
+        snprintf(response, response_size, "RESPONSE 200 %d Batch received (%d readings, %d abnormal)\n",
+                 sensor->id, reading_count, abnormal_count);
+    } else {
+        snprintf(response, response_size, "RESPONSE 200 %d Batch received (%d readings)\n",
+                 sensor->id, reading_count);
+    }
     return 0;
 }
 
@@ -720,22 +777,121 @@ int process_message(client_t *client, char *message, char *response, int respons
 }
 
 //--------------------------------------------------------------------------------------------------------------------
+// Data accessors for HTTP server (thread-safe, output JSON)
+
+static const char *sensor_state_str(sensor_status_t state) {
+    switch (state) {
+        case SENSOR_CONNECTED: return "connected";
+        case SENSOR_IDLE:      return "idle";
+        case SENSOR_OFFLINE:   return "offline";
+        default:               return "unknown";
+    }
+}
+
+int get_sensors_json(char *buf, int buf_size, const char *filter_type) {
+    int offset = 0;
+    offset += snprintf(buf + offset, buf_size - offset, "[");
+
+    pthread_mutex_lock(&sensor_mutex);
+    int first = 1;
+    for (int i = 0; i < sensor_count; i++) {
+        sensor_t *s = sensors[i];
+        if (filter_type && strlen(filter_type) > 0 && strcmp(s->type, filter_type) != 0) continue;
+
+        float last_val = 0.0;
+        char last_ts[32] = "N/A";
+        if (s->history_count > 0) {
+            int last_idx = (s->history_index - 1 + MAX_HISTORY) % MAX_HISTORY;
+            last_val = s->history[last_idx].value;
+            strncpy(last_ts, s->history[last_idx].timestamp, sizeof(last_ts) - 1);
+        }
+
+        if (!first) offset += snprintf(buf + offset, buf_size - offset, ",");
+        first = 0;
+        offset += snprintf(buf + offset, buf_size - offset,
+            "{\"id\":%d,\"type\":\"%s\",\"state\":\"%s\",\"last_value\":%.2f,\"last_timestamp\":\"%s\"}",
+            s->id, s->type, sensor_state_str(s->state), last_val, last_ts);
+    }
+    pthread_mutex_unlock(&sensor_mutex);
+
+    offset += snprintf(buf + offset, buf_size - offset, "]");
+    return offset;
+}
+
+int get_history_json(char *buf, int buf_size, int sensor_id) {
+    int offset = 0;
+
+    pthread_mutex_lock(&sensor_mutex);
+    sensor_t *found = NULL;
+    for (int i = 0; i < sensor_count; i++) {
+        if (sensors[i]->id == sensor_id) { found = sensors[i]; break; }
+    }
+
+    if (!found) {
+        pthread_mutex_unlock(&sensor_mutex);
+        offset += snprintf(buf + offset, buf_size - offset, "{\"error\":\"Sensor not found\"}");
+        return offset;
+    }
+
+    offset += snprintf(buf + offset, buf_size - offset,
+        "{\"sensor_id\":%d,\"type\":\"%s\",\"state\":\"%s\",\"readings\":[",
+        found->id, found->type, sensor_state_str(found->state));
+
+    int start = (found->history_count < MAX_HISTORY) ? 0 : found->history_index;
+    for (int j = 0; j < found->history_count; j++) {
+        int idx = (start + j) % MAX_HISTORY;
+        reading_t *r = &found->history[idx];
+        if (j > 0) offset += snprintf(buf + offset, buf_size - offset, ",");
+        offset += snprintf(buf + offset, buf_size - offset,
+            "{\"timestamp\":\"%s\",\"value\":%.2f}", r->timestamp, r->value);
+    }
+    pthread_mutex_unlock(&sensor_mutex);
+
+    offset += snprintf(buf + offset, buf_size - offset, "]}");
+    return offset;
+}
+
+int get_alerts_json(char *buf, int buf_size) {
+    int offset = 0;
+    offset += snprintf(buf + offset, buf_size - offset, "[");
+
+    pthread_mutex_lock(&alert_mutex);
+    for (int i = 0; i < alert_count; i++) {
+        alert_t *a = &alerts[i];
+        if (i > 0) offset += snprintf(buf + offset, buf_size - offset, ",");
+        offset += snprintf(buf + offset, buf_size - offset,
+            "{\"sensor_id\":%d,\"type\":\"%s\",\"message\":\"%s\",\"timestamp\":\"%s\"}",
+            a->sensor_id, a->alert_type, a->message, a->timestamp);
+    }
+    pthread_mutex_unlock(&alert_mutex);
+
+    offset += snprintf(buf + offset, buf_size - offset, "]");
+    return offset;
+}
+
+//--------------------------------------------------------------------------------------------------------------------
 int main(int argc, char *argv[]) {
-    if (argc != 3) {
-        fprintf(stderr, "Usage: %s <port> <logfile>\n", argv[0]);
+    if (argc != 4) {
+        fprintf(stderr, "Usage: %s <port> <http_port> <logfile>\n", argv[0]);
         return EXIT_FAILURE;
     }
 
     int port = atoi(argv[1]);
-    log_file = fopen(argv[2], "a");
+    int http_port = atoi(argv[2]);
+    log_file = fopen(argv[3], "a");
 
     if (!log_file) { 
         perror("fopen");
         return EXIT_FAILURE; 
     }
 
+    // Start HTTP server in background thread
+    start_http_server(http_port);
+    printf("HTTP server started on port %d\n", http_port);
+    fflush(stdout);
+
     int server_fd = create_server_socket(port);
-    printf("Server listening on port %d\n", port);
+    printf("Protocol server listening on port %d\n", port);
     fflush(stdout);
 
     while (1) {

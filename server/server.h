@@ -14,8 +14,16 @@
 #define MAX_HISTORY     100
 #define MAX_ALERTS      100
 
-#define TIMEOUT_IDLE_SEC    60
-#define TIMEOUT_OFFLINE_SEC 60
+#define TIMEOUT_IDLE_SEC    30
+#define TIMEOUT_OFFLINE_SEC 30
+#define MAX_SENSOR_TYPES    10
+
+// Threshold definitions per sensor type
+typedef struct {
+    char type[32];
+    float lower;
+    float upper;
+} threshold_t;
 
 typedef enum { CONN_UNIDENTIFIED, CONN_SENSOR, CONN_OPERATOR } client_type_t;
 typedef enum { SENSOR_CONNECTED, SENSOR_IDLE, SENSOR_OFFLINE } sensor_status_t;
@@ -66,6 +74,9 @@ extern FILE *log_file;
 void store_alert(int sensor_id, const char *alert_type, const char *message);
 void broadcast_alert_to_operators(const char *alert_msg);
 
+// Thresholds
+const threshold_t *get_threshold(const char *sensor_type);
+
 // Logging
 void log_event(client_t *client, const char *received, const char *sent);
 
@@ -90,5 +101,13 @@ int handle_history(client_t *client, char **tokens, int token_count, char *respo
 int handle_alerts(client_t *client, char *response, int response_size);
 int handle_disconnect(client_t *client, char *response, int response_size);
 int process_message(client_t *client, char *message, char *response, int response_size);
+
+// Data accessors (thread-safe, for use by HTTP server)
+// Returns number of bytes written to buf. Writes JSON array of sensors.
+int get_sensors_json(char *buf, int buf_size, const char *filter_type);
+// Returns number of bytes written to buf. Writes JSON array of readings for a sensor.
+int get_history_json(char *buf, int buf_size, int sensor_id);
+// Returns number of bytes written to buf. Writes JSON array of alerts.
+int get_alerts_json(char *buf, int buf_size);
 
 #endif
