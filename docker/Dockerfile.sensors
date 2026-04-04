@@ -1,7 +1,16 @@
-FROM python:3.11-slim
+FROM golang:1.22-alpine AS builder
+
+WORKDIR /src
+
+COPY clients/sensor_client/go.mod ./
+COPY clients/sensor_client/main.go ./
+
+RUN go build -o /out/sensor-client main.go
+
+FROM alpine:3.20
 
 WORKDIR /app
 
-COPY clients/sensor_client/ ./
+COPY --from=builder /out/sensor-client ./sensor-client
 
-CMD ["python", "-u", "main.py"]
+CMD ["./sensor-client"]
