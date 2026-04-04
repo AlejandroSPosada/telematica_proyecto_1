@@ -142,6 +142,7 @@ static const char *DASHBOARD_HTML =
 "      <button class=\"btn\" onclick=\"filterSensors('temperature')\">Temperature</button>\n"
 "      <button class=\"btn\" onclick=\"filterSensors('pressure')\">Pressure</button>\n"
 "      <button class=\"btn\" onclick=\"filterSensors('vibration')\">Vibration</button>\n"
+"      <button class=\"btn\" onclick=\"filterSensors('humidity')\">Humidity</button>\n"
 "      <button class=\"btn\" onclick=\"filterSensors('energy')\">Energy</button>\n"
 "      <span class=\"refresh-info\">Auto-refresh: 5s</span>\n"
 "    </div>\n"
