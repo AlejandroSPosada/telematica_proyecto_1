@@ -60,9 +60,9 @@ Para conectar al servidor C real, modificar en config.py el valor de SERVER_HOST
 
 ## Parametros de configuracion
 
-En config.py se pueden ajustar los siguientes valores:
+En config.py (o por variables de entorno) se pueden ajustar los siguientes valores:
 
 - SERVER_HOST: nombre de dominio del servidor central, por defecto localhost para desarrollo
-- SERVER_PORT: puerto TCP del servidor, por defecto 8080
+- SERVER_PORT: puerto TCP del servidor, por defecto 5000
 - SEND_INTERVAL: segundos entre cada envio de batch, por defecto 5
 - BATCH_SIZE: cantidad de lecturas por batch, por defecto 3

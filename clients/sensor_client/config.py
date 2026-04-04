@@ -1,9 +1,11 @@
-# Configuración del servidor — sin IPs hardcodeadas
-SERVER_HOST = "localhost"   # En AWS se cambia por el nombre DNS
-SERVER_PORT = 8080
+import os
 
-# Intervalo de envío de batches (segundos)
-SEND_INTERVAL = 5
+# Configuracion del servidor, sobreescribible por variables de entorno
+SERVER_HOST = os.getenv("SERVER_HOST", "localhost")
+SERVER_PORT = int(os.getenv("SERVER_PORT", "5000"))
 
-# Tamaño del batch (lecturas por envío)
-BATCH_SIZE = 3
+# Intervalo de envio de batches (segundos)
+SEND_INTERVAL = int(os.getenv("SEND_INTERVAL", "5"))
+
+# Tamano del batch (lecturas por envio)
+BATCH_SIZE = int(os.getenv("BATCH_SIZE", "3"))

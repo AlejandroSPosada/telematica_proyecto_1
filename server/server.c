@@ -11,7 +11,6 @@
 #include "server.h"
 #include "http_server.h"
 
-
 static sensor_t *sensors[MAX_SENSORS] = {0};
 static int sensor_count = 0;
 static int next_sensor_id = 1;
@@ -28,6 +27,22 @@ static pthread_mutex_t alert_mutex = PTHREAD_MUTEX_INITIALIZER;
 static pthread_mutex_t log_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 FILE *log_file;
+
+static const char *get_auth_service_host(void) {
+    const char *host = getenv("AUTH_SERVICE_HOST");
+    return (host && host[0] != '\0') ? host : AUTH_SERVICE_HOST;
+}
+
+static int get_auth_service_port(void) {
+    const char *port_env = getenv("AUTH_SERVICE_PORT");
+    if (port_env && port_env[0] != '\0') {
+        int parsed = atoi(port_env);
+        if (parsed > 0 && parsed <= 65535) {
+            return parsed;
+        }
+    }
+    return AUTH_SERVICE_PORT;
+}
 
 //--------------------------------------------------------------------------------------------------------------------
 // Sensor type thresholds (lower, upper)
@@ -59,18 +74,21 @@ int validate_credentials(const char *username, const char *password, char *role_
 
     role_out[0] = '\0';
 
+    const char *auth_host = get_auth_service_host();
+    int auth_port = get_auth_service_port();
+
     // Resolve hostname via DNS (no hardcoded IPs)
     char port_str[8];
-    snprintf(port_str, sizeof(port_str), "%d", AUTH_SERVICE_PORT);
+    snprintf(port_str, sizeof(port_str), "%d", auth_port);
 
     struct addrinfo hints = {0}, *res = NULL;
     hints.ai_family = AF_INET;
     hints.ai_socktype = SOCK_STREAM;
 
-    int gai_err = getaddrinfo(AUTH_SERVICE_HOST, port_str, &hints, &res);
+    int gai_err = getaddrinfo(auth_host, port_str, &hints, &res);
     if (gai_err != 0) {
         fprintf(stderr, "AUTH: DNS resolution failed for %s: %s\n",
-                AUTH_SERVICE_HOST, gai_strerror(gai_err));
+                auth_host, gai_strerror(gai_err));
         return 0;
     }
 
@@ -101,7 +119,7 @@ int validate_credentials(const char *username, const char *password, char *role_
         "Host: %s:%d\r\n"
         "Connection: close\r\n"
         "\r\n",
-        username, password, AUTH_SERVICE_HOST, AUTH_SERVICE_PORT);
+        username, password, auth_host, auth_port);
 
     if (send(sock, request, strlen(request), 0) < 0) {
         perror("AUTH: send");

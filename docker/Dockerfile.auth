@@ -1,0 +1,9 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY auth/auth_service.py ./
+
+EXPOSE 9090
+
+CMD ["python", "-u", "auth_service.py"]

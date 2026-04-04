@@ -7,11 +7,13 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
-COPY server/server.c .
-COPY server/server.h .
+COPY server/server.c ./
+COPY server/server.h ./
+COPY server/http_server.c ./
+COPY server/http_server.h ./
 
-RUN gcc -o server server.c -lpthread
+RUN gcc -O2 -Wall -Wextra -o server server.c http_server.c -lpthread
 
-EXPOSE 8080
+EXPOSE 5000 8081
 
-CMD ["./server", "8080", "logs.txt"]
+CMD ["./server", "5000", "8081", "server.log"]

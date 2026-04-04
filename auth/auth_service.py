@@ -7,9 +7,10 @@ Valida usuarios y retorna su rol cuando el servidor lo consulta.
 import socket
 import json
 import threading
+import os
 
-HOST = "localhost"
-PORT = 9090
+HOST = os.getenv("AUTH_BIND_HOST", "0.0.0.0")
+PORT = int(os.getenv("AUTH_PORT", "9090"))
 
 # Base de usuarios del sistema
 # En un sistema real esto vendria de una base de datos externa

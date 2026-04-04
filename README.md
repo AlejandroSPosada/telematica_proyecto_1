@@ -192,28 +192,40 @@ make
 ### Ejecución del Servidor
 
 ```bash
-./server [puerto] [archivo_de_logs]
+./server [puerto_tcp] [puerto_http] [archivo_de_logs]
 ```
 
 Ejemplo:
 ```bash
-./server 5000 server.log
+./server 5000 8081 server.log
 ```
 
 ### Compilación y Ejecución de Clientes
 
 Consultar la documentación específica en cada carpeta de cliente.
 
-## Construcción de la Imagen Docker
+## Docker (Linux) - Un solo comando
 
 ```bash
-docker build -t iot-monitoring-server .
+docker compose up --build
 ```
 
-## Ejecución del Contenedor Docker
+Esto levanta automaticamente:
+
+- `auth-service` en `9090`
+- `monitor-server` (protocolo TCP en `5000`, dashboard HTTP en `8081`)
+- `sensor-client` con 5 sensores simulados enviando lecturas
+
+Acceso web:
+
+- URL: `http://localhost:8081`
+- Usuario: `admin`
+- Password: `admin123`
+
+Para detener el stack:
 
 ```bash
-docker run -p [puerto_host]:[puerto_contenedor] iot-monitoring-server
+docker compose down
 ```
 
 ## Despliegue en AWS
