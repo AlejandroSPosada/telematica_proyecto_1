@@ -55,7 +55,7 @@ public class Main {
 }
 
 class OperatorApp extends JFrame {
-    private final JTextField hostField = new JTextField("localhost", 12);
+    private final JTextField hostField = new JTextField("telematica-iot-monitoring.duckdns.org", 12);
     private final JTextField portField = new JTextField("5000", 5);
     private final JTextField userField = new JTextField("admin", 10);
     private final JPasswordField passField = new JPasswordField("admin123", 10);
@@ -364,7 +364,7 @@ class UnauthorizedException extends Exception {
 }
 
 class OperatorProtocolClient {
-    private static final int RESPONSE_TIMEOUT_SECONDS = 6;
+    private static final int RESPONSE_TIMEOUT_SECONDS = 30;
 
     private final AlertListener alertListener;
     private final DisconnectListener disconnectListener;

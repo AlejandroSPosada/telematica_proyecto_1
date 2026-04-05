@@ -122,21 +122,51 @@ Todos los servicios se localizan mediante resolución de nombres de dominio DNS,
 
 ## Despliegue en la Nube
 
+### Información de Despliegue Actual
+- **Proveedor de Nube:** Amazon Web Services (AWS)
+- **Instancia:** EC2 (t2.micro, Ubuntu 22.04 LTS)
+- **IP Pública:** 52.21.234.109
+- **Dominio:** telematica-iot-monitoring.duckdns.org
+- **Proveedor DNS:** Duck DNS (www.duckdns.org)
+- **Servicios:**
+  - Servidor TCP: Puerto 5000
+  - Servidor HTTP: Puerto 8081
+  - Servicio Auth: Puerto 9090 (interno)
+
 ### Teknologías Utilizadas
 - **AWS (Amazon Web Services)**
   - Instancia EC2 para cómputo
-  - Route 53 para gestión DNS
-  - Configuración de puertos de red
+  - Route 53 para gestión DNS (Hosted Zone configurada, aunque con registro global limitado por permisos de lab)
+  - Configuración de Security Groups
   
-- **Docker**
-  - Contenedor con todas las dependencias
-  - Dockerfile incluido en el repositorio
+- **Docker & Docker Compose**
+  - Contenedores para todos los servicios
+  - Dockerfile incluido en `docker/`
+  - docker-compose.yml para orquestación
   
+- **Duck DNS**
+  - Servicio gratuito de DNS dinámico para resolución de nombres
+  - Permite acceso a través de dominio en lugar de IP
+  - Domain: `telematica-iot-monitoring.duckdns.org`
+
 ### Características de Despliegue
 - El servidor se ejecuta dentro de un contenedor Docker
-- Acceso remoto a la instancia
+- Acceso remoto a la instancia mediante SSH
 - El sistema es accesible desde Internet mediante infraestructura en la nube
 - Despliegue reproducible en diferentes entornos
+- Configuración de servicios mediante docker-compose
+- No hay IPs ni hosts hardcodeados en el código
+
+### Resolución de Nombres
+**Solución implementada:** Duck DNS
+
+Duck DNS fue seleccionado como proveedor de DNS dinámico porque:
+1. Servicio gratuito y confiable
+2. Propagación instantánea de cambios DNS (vs 24-48h de Route 53)
+3. Fácil actualización de registros
+4. No requiere permisos especiales de AWS para registrar dominio
+
+**Requisito del proyecto:** Route 53 fue configurado (Hosted Zone creada), cumpliendo con el requisito académico, pero se utiliza Duck DNS como solución práctica para despliegue.
 
 ## Logging
 
@@ -148,6 +178,132 @@ El servidor implementa un sistema de registro que captura:
 
 Cada registro incluye:
 - Dirección IP del cliente
+- Puerto de origen
+- Mensaje recibido
+- Respuesta enviada
+- Timestamp del evento
+
+Los registros se muestran en consola y se almacenan en archivo de logs dentro del contenedor.
+
+## Estructura del Repositorio
+
+```
+proyecto-iot/
+├── auth/                      # Servicio de autenticación
+│   └── auth_service.py
+├── clients/
+│   ├── operador_client/       # Cliente operador (Java)
+│   │   ├── Main.java
+│   │   └── README.md
+│   └── sensor_client/         # Cliente sensores (Python)
+│       ├── main.py
+│       ├── sensor.py
+│       ├── config.py
+│       └── README.md
+├── server/                    # Servidor central (C)
+│   ├── server.c
+│   ├── server.h
+│   ├── http_server.c
+│   ├── http_server.h
+│   ├── Makefile
+│   └── server (ejecutable)
+├── web/                       # Interfaz web (Python)
+│   └── main.py
+├── docker/                    # Archivos Docker
+│   ├── Dockerfile             # Servidor y web
+│   ├── Dockerfile.auth        # Servicio auth
+│   └── Dockerfile.sensors     # Sensores
+├── docs/                      # Documentación
+│   ├── DEPLOYMENT_GUIDE.md    # Guía de despliegue completa
+│   └── deployment_guide.md
+├── docker-compose.yml         # Orquestación de contenedores
+├── PROTOCOLO.md               # Especificación del protocolo
+├── PROYECTO.md                # Enunciado del proyecto
+└── README.md                  # Este archivo
+```
+
+## Quick Start
+
+### Desarrollo Local
+
+```bash
+# Clonar repositorio
+git clone <url> proyecto-iot
+cd proyecto-iot
+
+# Compilar servidor
+cd server
+make
+
+# En otra terminal, compilar cliente operador
+cd clients/operador_client
+javac Main.java
+java Main
+
+# En otra terminal, ejecutar sensor client
+cd clients/sensor_client
+python main.py
+```
+
+### Despliegue en AWS
+
+Para instrucciones detalladas de despliegue en AWS con Docker, ver:
+**[DEPLOYMENT_GUIDE.md](docs/DEPLOYMENT_GUIDE.md)**
+
+Resumen rápido:
+```bash
+# En la instancia EC2:
+git clone <url> proyecto-iot
+cd proyecto-iot
+docker compose up -d
+
+# Verificar servicios
+docker compose ps
+
+# Ver logs
+docker compose logs -f
+```
+
+Luego conectar:
+- **Web:** http://52.21.234.109:8081 o http://telematica-iot-monitoring.duckdns.org:8081
+- **Cliente Java:** Host = telematica-iot-monitoring.duckdns.org, Puerto = 5000
+
+## Documentación
+
+- **[PROTOCOLO.md](PROTOCOLO.md)** - Especificación completa del protocolo de aplicación
+- **[PROYECTO.md](PROYECTO.md)** - Enunciado del proyecto y requisitos
+- **[docs/DEPLOYMENT_GUIDE.md](docs/DEPLOYMENT_GUIDE.md)** - Guía paso a paso para despliegue en AWS
+- **[clients/operador_client/README.md](clients/operador_client/README.md)** - Documentación del cliente operador
+- **[clients/sensor_client/README.md](clients/sensor_client/README.md)** - Documentación del cliente sensores
+
+## Credenciales por Defecto
+
+Para testing y desarrollo:
+- **Usuario:** admin
+- **Contraseña:** admin123
+
+## Consideraciones de Seguridad
+
+**Nota:** Las credenciales por defecto y configuración son solo para propósitos educativos. Para producción:
+1. Cambiar todas las contraseñas
+2. Ajustar Security Groups para restringir acceso
+3. Usar HTTPS en lugar de HTTP
+4. Implementar validación adicional de entrada
+5. Auditar logs regularmente
+
+## Autores
+
+- Alejandro Sepúlveda Posada
+- Jacobo Giraldo Zuluaga
+- Laura Sofía Aceros Monsalve
+- Paula Andrea Arroyave Acevedo
+
+## Institución
+
+**EAFIT** - Escuela de Administración, Finanzas e Institutos Tecnológicos  
+Materia: Internet, Arquitectura y Protocolos  
+2026
+
 - Puerto de origen
 - Mensaje recibido
 - Respuesta enviada

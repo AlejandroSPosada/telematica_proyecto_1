@@ -298,6 +298,8 @@ void *handle_client(void *arg) {
     client_t *client = (client_t *)arg;
     char message[BUFFER_SIZE];
     char temp[BUFFER_SIZE];
+    // HISTORY/LIST can produce long payloads; keep response buffer larger than input line buffer.
+    char response[BUFFER_SIZE * 8];
     int buf_len = 0;
 
     printf("DEBUG: client handler started for %s:%d\n", client->ip, client->port);
@@ -381,8 +383,7 @@ void *handle_client(void *arg) {
             printf("DEBUG: processing message: [%s]\n", message);
             fflush(stdout);
 
-            char response[BUFFER_SIZE];
-            int result = process_message(client, message, response, BUFFER_SIZE);
+            int result = process_message(client, message, response, sizeof(response));
             log_event(client, message, response);
             send_response(client, response);
             printf("DEBUG: sent response: [%s]\n", response);
