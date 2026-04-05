@@ -47,11 +47,11 @@ static int get_auth_service_port(void) {
 //--------------------------------------------------------------------------------------------------------------------
 // Sensor type thresholds (lower, upper)
 static const threshold_t sensor_thresholds[] = {
-    { "temperature",  -40.0,   125.0  },   // °C
-    { "pressure",       0.0,  1100.0  },   // hPa
-    { "vibration",      0.0,    50.0  },   // mm/s
-    { "energy",         0.0, 10000.0  },   // W
-    { "humidity",       0.0,   100.0  },   // %
+    { "temperature",  -10.0,    45.0  },   // °C
+    { "pressure",     900.0,  1100.0  },   // hPa
+    { "vibration",      0.0,     7.0  },   // mm/s
+    { "energy",         0.0,   500.0  },   // W
+    { "humidity",      20.0,    80.0  },   // %
 };
 static const int threshold_count = sizeof(sensor_thresholds) / sizeof(sensor_thresholds[0]);
 
