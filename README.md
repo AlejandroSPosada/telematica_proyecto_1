@@ -204,6 +204,19 @@ Ejemplo:
 
 Consultar la documentación específica en cada carpeta de cliente.
 
+Comandos rápidos:
+
+```bash
+# Cliente sensor (Go)
+cd clients/sensor_client
+go run .
+
+# Cliente operador (Java + Swing)
+cd clients/operator_client
+javac Main.java
+java Main
+```
+
 ## Docker (Linux) - Un solo comando
 
 ```bash

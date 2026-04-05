@@ -75,7 +75,7 @@ typedef struct {
 extern FILE *log_file;
 
 // Alerts
-void store_alert(int sensor_id, const char *alert_type, const char *message);
+void store_alert(int sensor_id, const char *alert_type, const char *message, char *timestamp_out, int timestamp_out_size);
 void broadcast_alert_to_operators(const char *alert_msg);
 
 // Thresholds

@@ -175,17 +175,27 @@ int validate_credentials(const char *username, const char *password, char *role_
 
 //--------------------------------------------------------------------------------------------------------------------
 // Alert management
-void store_alert(int sensor_id, const char *alert_type, const char *message) {
+void store_alert(int sensor_id, const char *alert_type, const char *message, char *timestamp_out, int timestamp_out_size) {
+    time_t now = time(NULL);
+    struct tm *tm_info = gmtime(&now);
+    char ts[32] = {0};
+    strftime(ts, sizeof(ts), "%Y-%m-%dT%H:%M:%SZ", tm_info);
+
+    if (timestamp_out && timestamp_out_size > 0) {
+        strncpy(timestamp_out, ts, timestamp_out_size - 1);
+        timestamp_out[timestamp_out_size - 1] = '\0';
+    }
+
     pthread_mutex_lock(&alert_mutex);
     if (alert_count < MAX_ALERTS) {
         alert_t *a = &alerts[alert_count++];
         a->sensor_id = sensor_id;
         strncpy(a->alert_type, alert_type, sizeof(a->alert_type) - 1);
+        a->alert_type[sizeof(a->alert_type) - 1] = '\0';
         strncpy(a->message, message, sizeof(a->message) - 1);
-
-        time_t now = time(NULL);
-        struct tm *tm_info = gmtime(&now);
-        strftime(a->timestamp, sizeof(a->timestamp), "%Y-%m-%dT%H:%M:%S", tm_info);
+        a->message[sizeof(a->message) - 1] = '\0';
+        strncpy(a->timestamp, ts, sizeof(a->timestamp) - 1);
+        a->timestamp[sizeof(a->timestamp) - 1] = '\0';
     }
     pthread_mutex_unlock(&alert_mutex);
 }
@@ -221,11 +231,11 @@ int tokenize(char *message, char **tokens, int max_tokens) {
     if (message == NULL) return -1;
     
     int count = 0;
-    char *token = strtok(message, " ");
+    char *token = strtok(message, " \t\r");
     
     while (token != NULL && count < max_tokens) {
         tokens[count++] = token;
-        token = strtok(NULL, " ");
+        token = strtok(NULL, " \t\r");
     }
     
     return count;
@@ -313,9 +323,10 @@ void *handle_client(void *arg) {
 
                     // Store alert and broadcast to operators
                     char alert_msg[BUFFER_SIZE];
+                    char alert_ts[32] = {0};
+                    store_alert(s->id, "BATCH_MISS", "Sensor missed a batch, on watchlist", alert_ts, sizeof(alert_ts));
                     snprintf(alert_msg, sizeof(alert_msg),
-                             "ALERT %d BATCH_MISS Sensor missed a batch, on watchlist\n", s->id);
-                    store_alert(s->id, "BATCH_MISS", "Sensor missed a batch, on watchlist");
+                             "ALERT %d BATCH_MISS %s Sensor missed a batch, on watchlist\n", s->id, alert_ts);
                     broadcast_alert_to_operators(alert_msg);
 
                     // Set longer timeout for the IDLE -> OFFLINE transition
@@ -332,9 +343,10 @@ void *handle_client(void *arg) {
                     fflush(stdout);
 
                     char alert_msg[BUFFER_SIZE];
+                    char alert_ts[32] = {0};
+                    store_alert(s->id, "SENSOR_OFFLINE", "Sensor disconnected unexpectedly", alert_ts, sizeof(alert_ts));
                     snprintf(alert_msg, sizeof(alert_msg),
-                             "ALERT %d SENSOR_OFFLINE Sensor disconnected unexpectedly\n", s->id);
-                    store_alert(s->id, "SENSOR_OFFLINE", "Sensor disconnected unexpectedly");
+                             "ALERT %d SENSOR_OFFLINE %s Sensor disconnected unexpectedly\n", s->id, alert_ts);
                     broadcast_alert_to_operators(alert_msg);
 
                     // Force disconnect
@@ -652,14 +664,14 @@ int handle_read_batch(client_t *client, char **tokens, int token_count, char *re
                 snprintf(alert_detail, sizeof(alert_detail),
                     "Reading %.2f above upper threshold %.2f", r->value, thresh->upper);
             }
-            snprintf(alert_msg, sizeof(alert_msg),
-                "ALERT %d ABNORMAL_READING %s\n", sensor->id, alert_detail);
-
             // Must release sensor_mutex before calling store_alert/broadcast
             // (they acquire alert_mutex/operator_mutex — avoid nested locks)
             pthread_mutex_unlock(&sensor_mutex);
 
-            store_alert(sensor->id, "ABNORMAL_READING", alert_detail);
+            char alert_ts[32] = {0};
+            store_alert(sensor->id, "ABNORMAL_READING", alert_detail, alert_ts, sizeof(alert_ts));
+            snprintf(alert_msg, sizeof(alert_msg),
+                "ALERT %d ABNORMAL_READING %s %s\n", sensor->id, alert_ts, alert_detail);
             broadcast_alert_to_operators(alert_msg);
 
             printf("DEBUG: sensor %d abnormal reading: %s\n", sensor->id, alert_detail);

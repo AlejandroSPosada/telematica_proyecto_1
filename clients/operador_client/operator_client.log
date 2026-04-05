@@ -1,0 +1,645 @@
+2026-04-04 19:13:57 [INFO] operator_client iniciado
+2026-04-04 19:13:57 [INFO] Intentando conexion y autenticacion a localhost:5000 con usuario=admin
+2026-04-04 19:13:57 [INFO] Abriendo socket TCP a localhost:5000
+2026-04-04 19:13:57 [INFO] TX AUTH admin ****
+2026-04-04 19:13:57 [INFO] RX RESPONSE 200 3 User authenticated
+2026-04-04 19:13:57 [INFO] Conexion y autenticacion exitosas
+2026-04-04 19:13:57 [INFO] TX LIST
+2026-04-04 19:13:57 [INFO] RX RESPONSE 200 5 1 pressure 1028.99 2 vibration 4.65 3 humidity 44.94 4 temperature 72.98 5 energy 178.40
+2026-04-04 19:13:57 [INFO] TX ALERTS
+2026-04-04 19:13:59 [INFO] TX LIST
+2026-04-04 19:13:59 [INFO] RX RESPONSE 200 39 1 ABNORMAL_READING 2026-04-05T00:04:47 1 ABNORMAL_READING 2026-04-05T00:05:22 1 ABNORMAL_READING 2026-04-05T00:05:22 1 ABNORMAL_READING 2026-04-05T00:05:42 1 ABNORMAL_READING 2026-04-05T00:05:57 1 ABNORMAL_READING 2026-04-05T00:06:07 1 ABNORMAL_READING 2026-04-05T00:06:17 1 ABNORMAL_READING 2026-04-05T00:06:27 1 ABNORMAL_READING 2026-04-05T00:06:42 1 ABNORMAL_READING 2026-04-05T00:07:17 1 ABNORMAL_READING 2026-04-05T00:07:17 1 ABNORMAL_READING 2026-04-05T00:07:22 4 BATCH_MISS 2026-04-05T00:07:32 5 BATCH_MISS 2026-04-05T00:07:32 3 BATCH_MISS 2026-04-05T00:07:32 2 BATCH_MISS 2026-04-05T00:07:32 1 ABNORMAL_READING 2026-04-05T00:07:52 1 ABNORMAL_READING 2026-04-05T00:08:07 1 ABNORMAL_READING 2026-04-05T00:08:12 1 ABNORMAL_READING 2026-04-05T00:08:37 1 ABNORMAL_READING 2026-04-05T00:08:47 1 ABNORMAL_READING 2026-04-05T00:09:07 1 ABNORMAL_READING 2026-04-05T00:09:17 1 ABNORMAL_READING 2026-04-05T00:09:27 1 ABNORMAL_READING 2026-04-05T00:09:37 1 ABNORMAL_READING 2026-04-05T00:09:42 1 ABNORMAL_READINRESPONSE 200 5 1 pressure 1028.99 2 vibration 4.65 3 humidity 44.94 4 temperature 72.98 5 energy 178.40
+2026-04-04 19:13:59 [ERROR] Fallo refrescando datos
+2026-04-04 19:13:59 [ERROR] NumberFormatException: For input string: "1028.99"
+2026-04-04 19:13:59 [ERROR] UI error: Error consultando servidor: For input string: "1028.99"
+2026-04-04 19:14:05 [ERROR] Fallo refrescando datos
+2026-04-04 19:14:05 [ERROR] RuntimeException: Timeout esperando respuesta para: LIST
+2026-04-04 19:14:05 [ERROR] UI error: Error consultando servidor: Timeout esperando respuesta para: LIST
+2026-04-04 19:14:07 [INFO] RX ALERT 1 ABNORMAL_READING Reading 1179.57 above upper threshold 1100.00
+2026-04-04 19:14:07 [INFO] Alerta push recibida sensor=1 tipo=ABNORMAL_READING mensaje=Reading 1179.57 above upper threshold 1100.00
+2026-04-04 19:15:51 [INFO] operator_client iniciado
+2026-04-04 19:15:51 [INFO] Intentando conexion y autenticacion a localhost:5000 con usuario=admin
+2026-04-04 19:15:51 [INFO] Abriendo socket TCP a localhost:5000
+2026-04-04 19:15:52 [INFO] TX AUTH admin ****
+2026-04-04 19:15:52 [INFO] RX RESPONSE 200 4 User authenticated
+2026-04-04 19:15:52 [INFO] Conexion y autenticacion exitosas
+2026-04-04 19:15:52 [INFO] TX LIST
+2026-04-04 19:15:52 [INFO] RX RESPONSE 200 5 1 pressure 1040.19 2 vibration 1.82 3 humidity 30.11 4 temperature 34.85 5 energy 197.14
+2026-04-04 19:15:52 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:15:57 [INFO] TX LIST
+2026-04-04 19:15:57 [INFO] RX RESPONSE 200 5 1 pressure 1022.03 2 vibration 1.77 3 humidity 58.82 4 temperature 31.60 5 energy 295.38
+2026-04-04 19:15:57 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:16:02 [INFO] TX LIST
+2026-04-04 19:16:02 [INFO] RX RESPONSE 200 5 1 pressure 964.94 2 vibration 2.52 3 humidity 66.24 4 temperature 16.58 5 energy 107.16
+2026-04-04 19:16:02 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:16:02 [INFO] RX ALERT 1 ABNORMAL_READING Reading 1179.64 above upper threshold 1100.00
+2026-04-04 19:16:02 [INFO] Alerta push recibida sensor=1 tipo=ABNORMAL_READING mensaje=Reading 1179.64 above upper threshold 1100.00
+2026-04-04 19:16:07 [INFO] TX LIST
+2026-04-04 19:16:07 [INFO] RX RESPONSE 200 5 1 pressure 1049.14 2 vibration 3.73 3 humidity 59.14 4 temperature 19.35 5 energy 303.40
+2026-04-04 19:16:07 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:16:12 [INFO] TX LIST
+2026-04-04 19:16:12 [INFO] RX RESPONSE 200 5 1 pressure 1006.55 2 vibration 4.08 3 humidity 41.76 4 temperature 17.72 5 energy 222.32
+2026-04-04 19:16:12 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:16:17 [INFO] TX LIST
+2026-04-04 19:16:17 [INFO] RX RESPONSE 200 5 1 pressure 992.35 2 vibration 2.36 3 humidity 59.22 4 temperature 32.69 5 energy 100.26
+2026-04-04 19:16:17 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:16:17 [INFO] RX ALERT 1 ABNORMAL_READING Reading 1197.30 above upper threshold 1100.00
+2026-04-04 19:16:17 [INFO] Alerta push recibida sensor=1 tipo=ABNORMAL_READING mensaje=Reading 1197.30 above upper threshold 1100.00
+2026-04-04 19:16:22 [INFO] TX LIST
+2026-04-04 19:16:22 [INFO] RX RESPONSE 200 5 1 pressure 1197.30 2 vibration 2.54 3 humidity 31.64 4 temperature 64.94 5 energy 333.24
+2026-04-04 19:16:22 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:16:22 [INFO] RX ALERT 1 ABNORMAL_READING Reading 1132.72 above upper threshold 1100.00
+2026-04-04 19:16:22 [INFO] Alerta push recibida sensor=1 tipo=ABNORMAL_READING mensaje=Reading 1132.72 above upper threshold 1100.00
+2026-04-04 19:16:27 [INFO] TX LIST
+2026-04-04 19:16:27 [INFO] RX RESPONSE 200 5 1 pressure 1132.72 2 vibration 2.45 3 humidity 32.78 4 temperature 34.56 5 energy 143.81
+2026-04-04 19:16:27 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:16:27 [INFO] RX ALERT 1 ABNORMAL_READING Reading 1122.67 above upper threshold 1100.00
+2026-04-04 19:16:27 [INFO] Alerta push recibida sensor=1 tipo=ABNORMAL_READING mensaje=Reading 1122.67 above upper threshold 1100.00
+2026-04-04 19:16:32 [INFO] TX LIST
+2026-04-04 19:16:32 [INFO] RX RESPONSE 200 5 1 pressure 1012.80 2 vibration 4.44 3 humidity 45.45 4 temperature 30.99 5 energy 224.79
+2026-04-04 19:16:32 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:16:32 [INFO] RX ALERT 1 ABNORMAL_READING Reading 1199.97 above upper threshold 1100.00
+2026-04-04 19:16:32 [INFO] Alerta push recibida sensor=1 tipo=ABNORMAL_READING mensaje=Reading 1199.97 above upper threshold 1100.00
+2026-04-04 19:16:37 [INFO] TX LIST
+2026-04-04 19:16:37 [INFO] RX RESPONSE 200 5 1 pressure 1199.97 2 vibration 3.43 3 humidity 68.96 4 temperature 15.24 5 energy 250.14
+2026-04-04 19:16:37 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:16:42 [INFO] TX LIST
+2026-04-04 19:16:42 [INFO] RX RESPONSE 200 5 1 pressure 965.21 2 vibration 3.81 3 humidity 33.24 4 temperature 28.53 5 energy 246.94
+2026-04-04 19:16:42 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:16:42 [INFO] RX ALERT 5 BATCH_MISS Sensor missed a batch, on watchlist
+2026-04-04 19:16:42 [INFO] Alerta push recibida sensor=5 tipo=BATCH_MISS mensaje=Sensor missed a batch, on watchlist
+2026-04-04 19:16:47 [INFO] TX LIST
+2026-04-04 19:16:47 [INFO] RX RESPONSE 200 5 1 pressure 1018.67 2 vibration 4.51 3 humidity 50.45 4 temperature 22.10 5 energy 375.16
+2026-04-04 19:16:47 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:16:52 [INFO] TX LIST
+2026-04-04 19:16:52 [INFO] RX RESPONSE 200 5 1 pressure 951.92 2 vibration 3.01 3 humidity 30.28 4 temperature 24.75 5 energy 882.97
+2026-04-04 19:16:52 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:16:57 [INFO] TX LIST
+2026-04-04 19:16:57 [INFO] RX RESPONSE 200 5 1 pressure 1031.93 2 vibration 1.30 3 humidity 45.43 4 temperature 54.34 5 energy 174.87
+2026-04-04 19:16:57 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:17:02 [INFO] TX LIST
+2026-04-04 19:17:02 [INFO] RX RESPONSE 200 5 1 pressure 968.20 2 vibration 3.75 3 humidity 51.38 4 temperature 28.97 5 energy 272.88
+2026-04-04 19:17:02 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:17:07 [INFO] TX LIST
+2026-04-04 19:17:07 [INFO] RX RESPONSE 200 5 1 pressure 1018.10 2 vibration 1.61 3 humidity 49.22 4 temperature 22.42 5 energy 157.34
+2026-04-04 19:17:07 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:17:12 [INFO] TX LIST
+2026-04-04 19:17:12 [INFO] RX RESPONSE 200 5 1 pressure 1048.73 2 vibration 14.79 3 humidity 67.97 4 temperature 33.47 5 energy 160.42
+2026-04-04 19:17:12 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:17:17 [INFO] TX LIST
+2026-04-04 19:17:17 [INFO] RX RESPONSE 200 5 1 pressure 1005.26 2 vibration 4.60 3 humidity 39.00 4 temperature 27.05 5 energy 259.22
+2026-04-04 19:17:17 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:17:22 [INFO] TX LIST
+2026-04-04 19:17:22 [INFO] RX RESPONSE 200 5 1 pressure 1018.56 2 vibration 0.76 3 humidity 45.31 4 temperature 29.26 5 energy 215.14
+2026-04-04 19:17:22 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:17:22 [INFO] RX ALERT 1 ABNORMAL_READING Reading 1100.54 above upper threshold 1100.00
+2026-04-04 19:17:22 [INFO] Alerta push recibida sensor=1 tipo=ABNORMAL_READING mensaje=Reading 1100.54 above upper threshold 1100.00
+2026-04-04 19:17:27 [INFO] TX LIST
+2026-04-04 19:17:27 [INFO] RX RESPONSE 200 5 1 pressure 978.08 2 vibration 4.22 3 humidity 65.20 4 temperature 26.08 5 energy 290.81
+2026-04-04 19:17:27 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:17:32 [INFO] TX LIST
+2026-04-04 19:17:32 [INFO] RX RESPONSE 200 5 1 pressure 1029.23 2 vibration 3.28 3 humidity 64.74 4 temperature 57.51 5 energy 321.07
+2026-04-04 19:17:32 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:17:32 [INFO] RX ALERT 1 ABNORMAL_READING Reading 1157.59 above upper threshold 1100.00
+2026-04-04 19:17:32 [INFO] Alerta push recibida sensor=1 tipo=ABNORMAL_READING mensaje=Reading 1157.59 above upper threshold 1100.00
+2026-04-04 19:17:37 [INFO] TX LIST
+2026-04-04 19:17:37 [INFO] RX RESPONSE 200 5 1 pressure 1019.82 2 vibration 4.39 3 humidity 31.61 4 temperature 20.39 5 energy 122.70
+2026-04-04 19:17:37 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:17:42 [INFO] TX LIST
+2026-04-04 19:17:42 [INFO] RX RESPONSE 200 5 1 pressure 1025.51 2 vibration 2.44 3 humidity 38.48 4 temperature 17.69 5 energy 258.23
+2026-04-04 19:17:42 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:17:47 [INFO] TX LIST
+2026-04-04 19:17:47 [INFO] RX RESPONSE 200 5 1 pressure 1019.05 2 vibration 1.91 3 humidity 33.33 4 temperature 18.10 5 energy 305.33
+2026-04-04 19:17:47 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:17:47 [INFO] RX ALERT 1 ABNORMAL_READING Reading 1158.45 above upper threshold 1100.00
+2026-04-04 19:17:47 [INFO] Alerta push recibida sensor=1 tipo=ABNORMAL_READING mensaje=Reading 1158.45 above upper threshold 1100.00
+2026-04-04 19:17:52 [INFO] TX LIST
+2026-04-04 19:17:52 [INFO] RX RESPONSE 200 5 1 pressure 981.47 2 vibration 4.57 3 humidity 48.10 4 temperature 27.78 5 energy 338.16
+2026-04-04 19:17:52 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:17:57 [INFO] TX LIST
+2026-04-04 19:17:57 [INFO] RX RESPONSE 200 5 1 pressure 1042.47 2 vibration 1.76 3 humidity 98.11 4 temperature 28.26 5 energy 342.47
+2026-04-04 19:17:57 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:18:02 [INFO] TX LIST
+2026-04-04 19:18:02 [INFO] RX RESPONSE 200 5 1 pressure 1017.09 2 vibration 3.21 3 humidity 52.25 4 temperature 28.97 5 energy 218.40
+2026-04-04 19:18:02 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:18:07 [INFO] TX LIST
+2026-04-04 19:18:07 [INFO] RX RESPONSE 200 5 1 pressure 990.14 2 vibration 2.90 3 humidity 38.61 4 temperature 19.04 5 energy 109.27
+2026-04-04 19:18:07 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:18:12 [INFO] RX ALERT 1 ABNORMAL_READING Reading 1191.95 above upper threshold 1100.00
+2026-04-04 19:18:12 [INFO] Alerta push recibida sensor=1 tipo=ABNORMAL_READING mensaje=Reading 1191.95 above upper threshold 1100.00
+2026-04-04 19:18:12 [INFO] TX LIST
+2026-04-04 19:18:12 [INFO] RX RESPONSE 200 5 1 pressure 998.95 2 vibration 3.90 3 humidity 52.17 4 temperature 23.11 5 energy 312.99
+2026-04-04 19:18:12 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:18:17 [INFO] TX LIST
+2026-04-04 19:18:17 [INFO] RX RESPONSE 200 5 1 pressure 954.40 2 vibration 2.97 3 humidity 69.34 4 temperature 16.31 5 energy 298.32
+2026-04-04 19:18:17 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:18:22 [INFO] RX ALERT 1 ABNORMAL_READING Reading 1180.09 above upper threshold 1100.00
+2026-04-04 19:18:22 [INFO] Alerta push recibida sensor=1 tipo=ABNORMAL_READING mensaje=Reading 1180.09 above upper threshold 1100.00
+2026-04-04 19:18:22 [INFO] TX LIST
+2026-04-04 19:18:22 [INFO] RX RESPONSE 200 5 1 pressure 970.56 2 vibration 3.88 3 humidity 53.10 4 temperature 30.36 5 energy 142.38
+2026-04-04 19:18:22 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:18:27 [INFO] TX LIST
+2026-04-04 19:18:27 [INFO] RX RESPONSE 200 5 1 pressure 1034.36 2 vibration 2.95 3 humidity 68.33 4 temperature 22.91 5 energy 343.95
+2026-04-04 19:18:27 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:18:32 [INFO] TX LIST
+2026-04-04 19:18:32 [INFO] RX RESPONSE 200 5 1 pressure 1033.81 2 vibration 3.77 3 humidity 67.34 4 temperature 15.37 5 energy 254.13
+2026-04-04 19:18:32 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:18:37 [INFO] TX LIST
+2026-04-04 19:18:37 [INFO] RX RESPONSE 200 5 1 pressure 955.90 2 vibration 2.84 3 humidity 49.63 4 temperature 31.60 5 energy 227.45
+2026-04-04 19:18:37 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:18:42 [INFO] TX LIST
+2026-04-04 19:18:42 [INFO] RX RESPONSE 200 5 1 pressure 1012.22 2 vibration 0.59 3 humidity 51.55 4 temperature 23.32 5 energy 115.95
+2026-04-04 19:18:42 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:18:47 [INFO] TX LIST
+2026-04-04 19:18:47 [INFO] RX RESPONSE 200 5 1 pressure 1001.33 2 vibration 3.11 3 humidity 51.37 4 temperature 25.10 5 energy 612.31
+2026-04-04 19:18:47 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:18:52 [INFO] TX LIST
+2026-04-04 19:18:52 [INFO] RX RESPONSE 200 5 1 pressure 1028.50 2 vibration 8.37 3 humidity 69.49 4 temperature 18.54 5 energy 161.47
+2026-04-04 19:18:52 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:18:57 [INFO] RX ALERT 1 ABNORMAL_READING Reading 1118.19 above upper threshold 1100.00
+2026-04-04 19:18:57 [INFO] Alerta push recibida sensor=1 tipo=ABNORMAL_READING mensaje=Reading 1118.19 above upper threshold 1100.00
+2026-04-04 19:18:57 [INFO] TX LIST
+2026-04-04 19:18:57 [INFO] RX RESPONSE 200 5 1 pressure 961.79 2 vibration 4.44 3 humidity 56.40 4 temperature 18.90 5 energy 290.33
+2026-04-04 19:18:57 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:19:02 [INFO] TX LIST
+2026-04-04 19:19:02 [INFO] RX RESPONSE 200 5 1 pressure 1003.07 2 vibration 3.33 3 humidity 92.87 4 temperature 21.27 5 energy 292.60
+2026-04-04 19:19:02 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:27:29 [INFO] operator_client iniciado
+2026-04-04 19:27:30 [INFO] Intentando conexion y autenticacion a localhost:5000 con usuario=admin
+2026-04-04 19:27:30 [INFO] Abriendo socket TCP a localhost:5000
+2026-04-04 19:27:30 [INFO] TX AUTH admin ****
+2026-04-04 19:27:30 [INFO] RX RESPONSE 200 1 User authenticated
+2026-04-04 19:27:30 [INFO] Conexion y autenticacion exitosas
+2026-04-04 19:27:30 [INFO] TX LIST
+2026-04-04 19:27:30 [INFO] RX RESPONSE 200 5 1 vibration 4.21 2 temperature 18.42 3 humidity 46.78 4 pressure 1013.91 5 energy 316.72
+2026-04-04 19:27:30 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:27:32 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:27:32Z Reading 1141.97 above upper threshold 1100.00
+2026-04-04 19:27:32 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:27:32Z mensaje=Reading 1141.97 above upper threshold 1100.00
+2026-04-04 19:27:32 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:27:32Z Reading 1175.09 above upper threshold 1100.00
+2026-04-04 19:27:32 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:27:32Z mensaje=Reading 1175.09 above upper threshold 1100.00
+2026-04-04 19:27:35 [INFO] TX LIST
+2026-04-04 19:27:35 [INFO] RX RESPONSE 200 5 1 vibration 1.42 2 temperature 19.87 3 humidity 68.36 4 pressure 1175.09 5 energy 223.72
+2026-04-04 19:27:35 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:27:40 [INFO] TX LIST
+2026-04-04 19:27:40 [INFO] RX RESPONSE 200 5 1 vibration 2.70 2 temperature 15.02 3 humidity 52.71 4 pressure 1034.13 5 energy 389.14
+2026-04-04 19:27:40 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:27:45 [INFO] TX LIST
+2026-04-04 19:27:45 [INFO] RX RESPONSE 200 5 1 vibration 2.29 2 temperature 22.85 3 humidity 35.64 4 pressure 1007.35 5 energy 699.62
+2026-04-04 19:27:45 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:27:50 [INFO] TX LIST
+2026-04-04 19:27:50 [INFO] RX RESPONSE 200 5 1 vibration 3.66 2 temperature 19.74 3 humidity 63.65 4 pressure 1010.35 5 energy 221.05
+2026-04-04 19:27:50 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:27:55 [INFO] TX LIST
+2026-04-04 19:27:55 [INFO] RX RESPONSE 200 5 1 vibration 3.40 2 temperature 31.89 3 humidity 48.98 4 pressure 1025.35 5 energy 182.75
+2026-04-04 19:27:55 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:27:57 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:27:57Z Reading 1185.43 above upper threshold 1100.00
+2026-04-04 19:27:57 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:27:57Z mensaje=Reading 1185.43 above upper threshold 1100.00
+2026-04-04 19:28:00 [INFO] TX LIST
+2026-04-04 19:28:00 [INFO] RX RESPONSE 200 5 1 vibration 9.34 2 temperature 22.94 3 humidity 43.79 4 pressure 1038.70 5 energy 354.72
+2026-04-04 19:28:00 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:28:05 [INFO] TX LIST
+2026-04-04 19:28:05 [INFO] RX RESPONSE 200 5 1 vibration 2.18 2 temperature 26.84 3 humidity 64.13 4 pressure 1040.55 5 energy 250.94
+2026-04-04 19:28:05 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:28:10 [INFO] TX LIST
+2026-04-04 19:28:10 [INFO] RX RESPONSE 200 5 1 vibration 1.26 2 temperature 33.38 3 humidity 34.18 4 pressure 988.28 5 energy 331.37
+2026-04-04 19:28:10 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:28:15 [INFO] TX LIST
+2026-04-04 19:28:15 [INFO] RX RESPONSE 200 5 1 vibration 0.70 2 temperature 25.42 3 humidity 39.15 4 pressure 976.68 5 energy 125.98
+2026-04-04 19:28:15 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:28:17 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:28:17Z Reading 1175.57 above upper threshold 1100.00
+2026-04-04 19:28:17 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:28:17Z mensaje=Reading 1175.57 above upper threshold 1100.00
+2026-04-04 19:28:18 [INFO] TX HISTORY 1
+2026-04-04 19:28:18 [INFO] RX RESPONSE 200 36 2026-04-05T00:27:22 3.18 2026-04-05T00:27:22 4.84 2026-04-05T00:27:22 1.41 2026-04-05T00:27:27 3.05 2026-04-05T00:27:27 3.89 2026-04-05T00:27:27 4.21 2026-04-05T00:27:32 3.91 2026-04-05T00:27:32 4.35 2026-04-05T00:27:32 1.42 2026-04-05T00:27:37 3.98 2026-04-05T00:27:37 3.28 2026-04-05T00:27:37 2.70 2026-04-05T00:27:42 2.47 2026-04-05T00:27:42 2.77 2026-04-05T00:27:42 2.29 2026-04-05T00:27:47 1.84 2026-04-05T00:27:47 2.28 2026-04-05T00:27:47 3.66 2026-04-05T00:27:52 2.38 2026-04-05T00:27:52 1.27 2026-04-05T00:27:52 3.40 2026-04-05T00:27:57 10.31 2026-04-05T00:27:57 0.95 2026-04-05T00:27:57 9.34 2026-04-05T00:28:02 2.33 2026-04-05T00:28:02 1.61 2026-04-05T00:28:02 2.18 2026-04-05T00:28:07 1.45 2026-04-05T00:28:07 3.85 2026-04-05T00:28:07 1.26 2026-04-05T00:28:12 0.43 2026-04-05T00:28:12 2.27 2026-04-05T00:28:12 0.70 2026-04-05T00:28:17 2.04 2026-04-05T00:28:17 4.74 2026-04-05T00:28:17 0.21
+2026-04-04 19:28:18 [INFO] Historial cargado sensor_id=1, lecturas=36
+2026-04-04 19:28:20 [INFO] TX LIST
+2026-04-04 19:28:20 [INFO] RX RESPONSE 200 5 1 vibration 0.21 2 temperature 23.82 3 humidity 49.83 4 pressure 989.38 5 energy 615.13
+2026-04-04 19:28:20 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:28:22 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:28:22Z Reading 1122.95 above upper threshold 1100.00
+2026-04-04 19:28:22 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:28:22Z mensaje=Reading 1122.95 above upper threshold 1100.00
+2026-04-04 19:28:22 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:28:22Z Reading 1121.89 above upper threshold 1100.00
+2026-04-04 19:28:22 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:28:22Z mensaje=Reading 1121.89 above upper threshold 1100.00
+2026-04-04 19:28:24 [INFO] TX HISTORY 3
+2026-04-04 19:28:27 [INFO] RX RESPONSE 200 39 2026-04-05T00:27:22 45.82 2026-04-05T00:27:22 63.41 2026-04-05T00:27:22 68.18 2026-04-05T00:27:27 65.05 2026-04-05T00:27:27 64.13 2026-04-05T00:27:27 46.78 2026-04-05T00:27:32 92.60 2026-04-05T00:27:32 60.80 2026-04-05T00:27:32 68.36 2026-04-05T00:27:37 96.84 2026-04-05T00:27:37 55.84 2026-04-05T00:27:37 52.71 2026-04-05T00:27:42 46.32 2026-04-05T00:27:42 52.31 2026-04-05T00:27:42 35.64 2026-04-05T00:27:47 30.10 2026-04-05T00:27:47 89.44 2026-04-05T00:27:47 63.65 2026-04-05T00:27:52 68.72 2026-04-05T00:27:52 56.66 2026-04-05T00:27:52 48.98 2026-04-05T00:27:57 63.84 2026-04-05T00:27:57 61.41 2026-04-05T00:27:57 43.79 2026-04-05T00:28:02 87.04 2026-04-05T00:28:02 67.69 2026-04-05T00:28:02 64.13 2026-04-05T00:28:07 95.63 2026-04-05T00:28:07 94.38 2026-04-05T00:28:07 34.18 2026-04-05T00:28:12 30.27 2026-04-05T00:28:12 49.52 2026-04-05T00:28:12 39.15 2026-04-05T00:28:17 44.45 2026-04-05T00:28:17 63.14 2026-04-05T00:28:17 49.83 2026-04-05T00:28:22 47.36 2026-04-05T00:28:22 94.10 2026-04-05T00:28:22ALERT 4 ABNORMAL_READING 2026-04-05T00:28:27Z Reading 1173.60 above upper threshold 1100.00
+2026-04-04 19:28:27 [INFO] Historial cargado sensor_id=3, lecturas=39
+2026-04-04 19:28:27 [INFO] TX LIST
+2026-04-04 19:28:27 [INFO] RX RESPONSE 200 5 1 vibration 2.90 2 temperature 15.03 3 humidity 55.13 4 pressure 1173.60 5 energy 182.61
+2026-04-04 19:28:27 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:28:30 [INFO] TX LIST
+2026-04-04 19:28:30 [INFO] RX RESPONSE 200 5 1 vibration 2.90 2 temperature 15.03 3 humidity 55.13 4 pressure 1173.60 5 energy 182.61
+2026-04-04 19:28:30 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:28:35 [INFO] TX LIST
+2026-04-04 19:28:35 [INFO] RX RESPONSE 200 5 1 vibration 1.32 2 temperature 22.58 3 humidity 35.76 4 pressure 1049.69 5 energy 247.82
+2026-04-04 19:28:35 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:28:37 [INFO] RX ALERT 2 BATCH_MISS 2026-04-05T00:28:37Z Sensor missed a batch, on watchlist
+2026-04-04 19:28:37 [INFO] Alerta push recibida sensor=2 tipo=BATCH_MISS timestamp=2026-04-05T00:28:37Z mensaje=Sensor missed a batch, on watchlist
+2026-04-04 19:28:40 [INFO] TX LIST
+2026-04-04 19:28:40 [INFO] RX RESPONSE 200 5 1 vibration 11.24 2 temperature 33.63 3 humidity 85.44 4 pressure 1017.30 5 energy 303.47
+2026-04-04 19:28:40 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:28:45 [INFO] TX LIST
+2026-04-04 19:28:45 [INFO] RX RESPONSE 200 5 1 vibration 10.05 2 temperature 25.61 3 humidity 66.58 4 pressure 955.44 5 energy 247.22
+2026-04-04 19:28:45 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:28:47 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:28:47Z Reading 1126.12 above upper threshold 1100.00
+2026-04-04 19:28:47 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:28:47Z mensaje=Reading 1126.12 above upper threshold 1100.00
+2026-04-04 19:28:50 [INFO] TX LIST
+2026-04-04 19:28:50 [INFO] RX RESPONSE 200 5 1 vibration 3.88 2 temperature 26.86 3 humidity 96.05 4 pressure 1049.40 5 energy 354.28
+2026-04-04 19:28:50 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:28:52 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:28:52Z Reading 1146.89 above upper threshold 1100.00
+2026-04-04 19:28:52 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:28:52Z mensaje=Reading 1146.89 above upper threshold 1100.00
+2026-04-04 19:28:55 [INFO] TX LIST
+2026-04-04 19:28:55 [INFO] RX RESPONSE 200 5 1 vibration 1.42 2 temperature 28.34 3 humidity 94.63 4 pressure 1146.89 5 energy 343.41
+2026-04-04 19:28:55 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:28:57 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:28:57Z Reading 1188.79 above upper threshold 1100.00
+2026-04-04 19:28:57 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:28:57Z mensaje=Reading 1188.79 above upper threshold 1100.00
+2026-04-04 19:29:00 [INFO] TX LIST
+2026-04-04 19:29:00 [INFO] RX RESPONSE 200 5 1 vibration 3.37 2 temperature 32.31 3 humidity 39.32 4 pressure 965.66 5 energy 253.02
+2026-04-04 19:29:00 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:29:05 [INFO] TX LIST
+2026-04-04 19:29:05 [INFO] RX RESPONSE 200 5 1 vibration 0.73 2 temperature 20.09 3 humidity 45.52 4 pressure 977.93 5 energy 287.28
+2026-04-04 19:29:05 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:29:10 [INFO] TX LIST
+2026-04-04 19:29:10 [INFO] RX RESPONSE 200 5 1 vibration 3.30 2 temperature 33.08 3 humidity 38.40 4 pressure 1031.27 5 energy 290.43
+2026-04-04 19:29:10 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:29:12 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:29:12Z Reading 1136.37 above upper threshold 1100.00
+2026-04-04 19:29:12 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:29:12Z mensaje=Reading 1136.37 above upper threshold 1100.00
+2026-04-04 19:29:12 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:29:12Z Reading 1167.35 above upper threshold 1100.00
+2026-04-04 19:29:12 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:29:12Z mensaje=Reading 1167.35 above upper threshold 1100.00
+2026-04-04 19:29:15 [INFO] TX LIST
+2026-04-04 19:29:15 [INFO] RX RESPONSE 200 5 1 vibration 4.06 2 temperature 20.24 3 humidity 64.38 4 pressure 970.36 5 energy 236.59
+2026-04-04 19:29:15 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:29:20 [INFO] TX LIST
+2026-04-04 19:29:20 [INFO] RX RESPONSE 200 5 1 vibration 3.46 2 temperature 18.10 3 humidity 69.27 4 pressure 996.37 5 energy 147.16
+2026-04-04 19:29:20 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:29:22 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:29:22Z Reading 1173.53 above upper threshold 1100.00
+2026-04-04 19:29:22 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:29:22Z mensaje=Reading 1173.53 above upper threshold 1100.00
+2026-04-04 19:29:25 [INFO] TX LIST
+2026-04-04 19:29:25 [INFO] RX RESPONSE 200 5 1 vibration 0.08 2 temperature 32.70 3 humidity 69.77 4 pressure 963.68 5 energy 131.26
+2026-04-04 19:29:25 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:29:27 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:29:27Z Reading 1135.48 above upper threshold 1100.00
+2026-04-04 19:29:27 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:29:27Z mensaje=Reading 1135.48 above upper threshold 1100.00
+2026-04-04 19:29:30 [INFO] TX LIST
+2026-04-04 19:29:30 [INFO] RX RESPONSE 200 5 1 vibration 1.29 2 temperature 23.53 3 humidity 45.36 4 pressure 985.01 5 energy 298.01
+2026-04-04 19:29:30 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:29:35 [INFO] TX LIST
+2026-04-04 19:29:35 [INFO] RX RESPONSE 200 5 1 vibration 2.76 2 temperature 20.04 3 humidity 58.88 4 pressure 992.15 5 energy 382.32
+2026-04-04 19:29:35 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:29:37 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:29:37Z Reading 1185.61 above upper threshold 1100.00
+2026-04-04 19:29:37 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:29:37Z mensaje=Reading 1185.61 above upper threshold 1100.00
+2026-04-04 19:29:40 [INFO] TX LIST
+2026-04-04 19:29:40 [INFO] RX RESPONSE 200 5 1 vibration 4.95 2 temperature 30.34 3 humidity 30.04 4 pressure 1185.61 5 energy 233.65
+2026-04-04 19:29:40 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:29:42 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:29:42Z Reading 1146.73 above upper threshold 1100.00
+2026-04-04 19:29:42 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:29:42Z mensaje=Reading 1146.73 above upper threshold 1100.00
+2026-04-04 19:29:45 [INFO] TX LIST
+2026-04-04 19:29:45 [INFO] RX RESPONSE 200 5 1 vibration 0.31 2 temperature 32.29 3 humidity 91.12 4 pressure 1146.73 5 energy 349.43
+2026-04-04 19:29:45 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:29:47 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:29:47Z Reading 1105.37 above upper threshold 1100.00
+2026-04-04 19:29:47 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:29:47Z mensaje=Reading 1105.37 above upper threshold 1100.00
+2026-04-04 19:29:50 [INFO] TX LIST
+2026-04-04 19:29:50 [INFO] RX RESPONSE 200 5 1 vibration 3.98 2 temperature 20.11 3 humidity 35.10 4 pressure 1023.48 5 energy 147.65
+2026-04-04 19:29:50 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:29:55 [INFO] TX LIST
+2026-04-04 19:29:55 [INFO] RX RESPONSE 200 5 1 vibration 11.98 2 temperature 19.37 3 humidity 45.99 4 pressure 1021.55 5 energy 202.12
+2026-04-04 19:29:55 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:29:57 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:29:57Z Reading 1167.08 above upper threshold 1100.00
+2026-04-04 19:29:57 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:29:57Z mensaje=Reading 1167.08 above upper threshold 1100.00
+2026-04-04 19:30:00 [INFO] TX LIST
+2026-04-04 19:30:00 [INFO] RX RESPONSE 200 5 1 vibration 9.43 2 temperature 75.34 3 humidity 50.71 4 pressure 1030.87 5 energy 102.11
+2026-04-04 19:30:00 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:30:05 [INFO] TX LIST
+2026-04-04 19:30:05 [INFO] RX RESPONSE 200 5 1 vibration 3.53 2 temperature 31.21 3 humidity 32.75 4 pressure 1022.64 5 energy 190.23
+2026-04-04 19:30:05 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:30:07 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:30:07Z Reading 1124.24 above upper threshold 1100.00
+2026-04-04 19:30:07 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:30:07Z mensaje=Reading 1124.24 above upper threshold 1100.00
+2026-04-04 19:30:10 [INFO] TX LIST
+2026-04-04 19:30:10 [INFO] RX RESPONSE 200 5 1 vibration 0.45 2 temperature 31.05 3 humidity 98.28 4 pressure 1034.78 5 energy 392.20
+2026-04-04 19:30:10 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:30:15 [INFO] TX LIST
+2026-04-04 19:30:15 [INFO] RX RESPONSE 200 5 1 vibration 0.36 2 temperature 20.49 3 humidity 58.46 4 pressure 1020.34 5 energy 215.51
+2026-04-04 19:30:15 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:30:20 [INFO] TX LIST
+2026-04-04 19:30:20 [INFO] RX RESPONSE 200 5 1 vibration 3.10 2 temperature 32.10 3 humidity 54.22 4 pressure 981.62 5 energy 284.31
+2026-04-04 19:30:20 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:30:25 [INFO] TX LIST
+2026-04-04 19:30:25 [INFO] RX RESPONSE 200 5 1 vibration 3.18 2 temperature 18.51 3 humidity 66.87 4 pressure 1028.44 5 energy 740.17
+2026-04-04 19:30:25 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:30:27 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:30:27Z Reading 1115.38 above upper threshold 1100.00
+2026-04-04 19:30:27 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:30:27Z mensaje=Reading 1115.38 above upper threshold 1100.00
+2026-04-04 19:30:30 [INFO] TX LIST
+2026-04-04 19:30:30 [INFO] RX RESPONSE 200 5 1 vibration 3.61 2 temperature 33.65 3 humidity 67.57 4 pressure 1025.61 5 energy 349.11
+2026-04-04 19:30:30 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:30:35 [INFO] TX LIST
+2026-04-04 19:30:35 [INFO] RX RESPONSE 200 5 1 vibration 2.37 2 temperature 18.84 3 humidity 90.67 4 pressure 984.47 5 energy 334.34
+2026-04-04 19:30:35 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:30:40 [INFO] TX LIST
+2026-04-04 19:30:40 [INFO] RX RESPONSE 200 5 1 vibration 0.47 2 temperature 33.42 3 humidity 32.75 4 pressure 950.24 5 energy 678.60
+2026-04-04 19:30:40 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:30:45 [INFO] TX LIST
+2026-04-04 19:30:45 [INFO] RX RESPONSE 200 5 1 vibration 0.83 2 temperature 75.66 3 humidity 59.79 4 pressure 961.70 5 energy 205.06
+2026-04-04 19:30:45 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:30:50 [INFO] TX LIST
+2026-04-04 19:30:50 [INFO] RX RESPONSE 200 5 1 vibration 1.75 2 temperature 27.11 3 humidity 63.20 4 pressure 1047.56 5 energy 293.79
+2026-04-04 19:30:50 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:30:55 [INFO] TX LIST
+2026-04-04 19:30:55 [INFO] RX RESPONSE 200 5 1 vibration 1.35 2 temperature 25.32 3 humidity 61.02 4 pressure 1010.71 5 energy 662.39
+2026-04-04 19:30:55 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:30:57 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:30:57Z Reading 1150.97 above upper threshold 1100.00
+2026-04-04 19:30:57 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:30:57Z mensaje=Reading 1150.97 above upper threshold 1100.00
+2026-04-04 19:31:00 [INFO] TX LIST
+2026-04-04 19:31:00 [INFO] RX RESPONSE 200 5 1 vibration 4.93 2 temperature 18.50 3 humidity 36.06 4 pressure 975.20 5 energy 203.93
+2026-04-04 19:31:00 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:31:05 [INFO] TX LIST
+2026-04-04 19:31:05 [INFO] RX RESPONSE 200 5 1 vibration 1.40 2 temperature 17.03 3 humidity 87.26 4 pressure 1012.31 5 energy 134.73
+2026-04-04 19:31:05 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:31:10 [INFO] TX LIST
+2026-04-04 19:31:10 [INFO] RX RESPONSE 200 5 1 vibration 1.38 2 temperature 64.15 3 humidity 31.06 4 pressure 953.02 5 energy 374.10
+2026-04-04 19:31:10 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:31:15 [INFO] TX LIST
+2026-04-04 19:31:15 [INFO] RX RESPONSE 200 5 1 vibration 1.70 2 temperature 26.79 3 humidity 35.99 4 pressure 1045.17 5 energy 111.37
+2026-04-04 19:31:15 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:31:17 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:31:17Z Reading 1113.69 above upper threshold 1100.00
+2026-04-04 19:31:17 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:31:17Z mensaje=Reading 1113.69 above upper threshold 1100.00
+2026-04-04 19:31:20 [INFO] TX LIST
+2026-04-04 19:31:20 [INFO] RX RESPONSE 200 5 1 vibration 10.33 2 temperature 31.66 3 humidity 67.49 4 pressure 1113.69 5 energy 115.33
+2026-04-04 19:31:20 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:31:25 [INFO] TX LIST
+2026-04-04 19:31:25 [INFO] RX RESPONSE 200 5 1 vibration 3.16 2 temperature 30.34 3 humidity 31.11 4 pressure 955.12 5 energy 336.91
+2026-04-04 19:31:25 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:31:30 [INFO] TX LIST
+2026-04-04 19:31:30 [INFO] RX RESPONSE 200 5 1 vibration 3.90 2 temperature 17.42 3 humidity 33.31 4 pressure 1002.86 5 energy 116.22
+2026-04-04 19:31:30 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:31:32 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:31:32Z Reading 1142.67 above upper threshold 1100.00
+2026-04-04 19:31:32 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:31:32Z mensaje=Reading 1142.67 above upper threshold 1100.00
+2026-04-04 19:31:35 [INFO] TX LIST
+2026-04-04 19:31:35 [INFO] RX RESPONSE 200 5 1 vibration 13.39 2 temperature 28.27 3 humidity 40.26 4 pressure 1021.65 5 energy 245.19
+2026-04-04 19:31:35 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:31:37 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:31:37Z Reading 1111.05 above upper threshold 1100.00
+2026-04-04 19:31:37 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:31:37Z mensaje=Reading 1111.05 above upper threshold 1100.00
+2026-04-04 19:31:40 [INFO] TX LIST
+2026-04-04 19:31:40 [INFO] RX RESPONSE 200 5 1 vibration 2.01 2 temperature 26.23 3 humidity 65.21 4 pressure 1048.18 5 energy 313.28
+2026-04-04 19:31:40 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:31:46 [INFO] TX LIST
+2026-04-04 19:31:46 [INFO] RX RESPONSE 200 5 1 vibration 2.73 2 temperature 20.23 3 humidity 62.81 4 pressure 1014.83 5 energy 217.11
+2026-04-04 19:31:46 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:31:51 [INFO] TX LIST
+2026-04-04 19:31:51 [INFO] RX RESPONSE 200 5 1 vibration 1.63 2 temperature 15.64 3 humidity 53.62 4 pressure 1037.07 5 energy 692.05
+2026-04-04 19:31:51 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:31:56 [INFO] TX LIST
+2026-04-04 19:31:56 [INFO] RX RESPONSE 200 5 1 vibration 2.28 2 temperature 24.93 3 humidity 32.12 4 pressure 965.86 5 energy 360.36
+2026-04-04 19:31:56 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:32:01 [INFO] TX LIST
+2026-04-04 19:32:01 [INFO] RX RESPONSE 200 5 1 vibration 4.72 2 temperature 27.37 3 humidity 43.47 4 pressure 957.10 5 energy 183.05
+2026-04-04 19:32:01 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:32:02 [INFO] RX ALERT 5 BATCH_MISS 2026-04-05T00:32:02Z Sensor missed a batch, on watchlist
+2026-04-04 19:32:02 [INFO] Alerta push recibida sensor=5 tipo=BATCH_MISS timestamp=2026-04-05T00:32:02Z mensaje=Sensor missed a batch, on watchlist
+2026-04-04 19:32:06 [INFO] TX LIST
+2026-04-04 19:32:06 [INFO] RX RESPONSE 200 5 1 vibration 1.53 2 temperature 34.93 3 humidity 61.31 4 pressure 986.32 5 energy 398.89
+2026-04-04 19:32:06 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:32:11 [INFO] TX LIST
+2026-04-04 19:32:11 [INFO] RX RESPONSE 200 5 1 vibration 11.43 2 temperature 24.12 3 humidity 47.12 4 pressure 974.59 5 energy 696.21
+2026-04-04 19:32:11 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:32:16 [INFO] TX LIST
+2026-04-04 19:32:16 [INFO] RX RESPONSE 200 5 1 vibration 0.97 2 temperature 32.36 3 humidity 39.45 4 pressure 965.67 5 energy 318.00
+2026-04-04 19:32:16 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:32:21 [INFO] TX LIST
+2026-04-04 19:32:21 [INFO] RX RESPONSE 200 5 1 vibration 2.96 2 temperature 21.78 3 humidity 30.18 4 pressure 971.82 5 energy 367.95
+2026-04-04 19:32:21 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:32:26 [INFO] TX LIST
+2026-04-04 19:32:26 [INFO] RX RESPONSE 200 5 1 vibration 3.03 2 temperature 52.60 3 humidity 89.90 4 pressure 1024.86 5 energy 762.71
+2026-04-04 19:32:26 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:32:27 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:32:27Z Reading 1135.10 above upper threshold 1100.00
+2026-04-04 19:32:27 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:32:27Z mensaje=Reading 1135.10 above upper threshold 1100.00
+2026-04-04 19:32:31 [INFO] TX LIST
+2026-04-04 19:32:31 [INFO] RX RESPONSE 200 5 1 vibration 4.88 2 temperature 18.35 3 humidity 42.31 4 pressure 1135.10 5 energy 208.34
+2026-04-04 19:32:31 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:32:36 [INFO] TX LIST
+2026-04-04 19:32:36 [INFO] RX RESPONSE 200 5 1 vibration 3.80 2 temperature 32.32 3 humidity 52.66 4 pressure 1010.64 5 energy 369.50
+2026-04-04 19:32:36 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:32:41 [INFO] TX LIST
+2026-04-04 19:32:41 [INFO] RX RESPONSE 200 5 1 vibration 3.62 2 temperature 27.46 3 humidity 53.20 4 pressure 983.96 5 energy 228.45
+2026-04-04 19:32:41 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:32:46 [INFO] TX LIST
+2026-04-04 19:32:46 [INFO] RX RESPONSE 200 5 1 vibration 4.80 2 temperature 23.78 3 humidity 52.03 4 pressure 1030.60 5 energy 181.91
+2026-04-04 19:32:46 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:32:51 [INFO] TX LIST
+2026-04-04 19:32:51 [INFO] RX RESPONSE 200 5 1 vibration 2.96 2 temperature 19.15 3 humidity 60.10 4 pressure 1026.84 5 energy 213.25
+2026-04-04 19:32:51 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:32:56 [INFO] TX LIST
+2026-04-04 19:32:56 [INFO] RX RESPONSE 200 5 1 vibration 13.63 2 temperature 32.20 3 humidity 51.15 4 pressure 1035.27 5 energy 323.49
+2026-04-04 19:32:56 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:33:01 [INFO] TX LIST
+2026-04-04 19:33:01 [INFO] RX RESPONSE 200 5 1 vibration 2.07 2 temperature 34.17 3 humidity 52.17 4 pressure 983.95 5 energy 173.53
+2026-04-04 19:33:01 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:33:02 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:33:02Z Reading 1182.34 above upper threshold 1100.00
+2026-04-04 19:33:02 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:33:02Z mensaje=Reading 1182.34 above upper threshold 1100.00
+2026-04-04 19:33:06 [INFO] TX LIST
+2026-04-04 19:33:06 [INFO] RX RESPONSE 200 5 1 vibration 2.94 2 temperature 57.68 3 humidity 45.43 4 pressure 1019.64 5 energy 157.60
+2026-04-04 19:33:06 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:33:11 [INFO] TX LIST
+2026-04-04 19:33:11 [INFO] RX RESPONSE 200 5 1 vibration 0.20 2 temperature 22.95 3 humidity 65.96 4 pressure 959.64 5 energy 222.33
+2026-04-04 19:33:11 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:33:16 [INFO] TX LIST
+2026-04-04 19:33:16 [INFO] RX RESPONSE 200 5 1 vibration 3.65 2 temperature 28.46 3 humidity 69.61 4 pressure 987.64 5 energy 331.58
+2026-04-04 19:33:16 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:33:21 [INFO] TX LIST
+2026-04-04 19:33:21 [INFO] RX RESPONSE 200 5 1 vibration 0.30 2 temperature 19.91 3 humidity 50.13 4 pressure 1017.94 5 energy 153.11
+2026-04-04 19:33:21 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:33:22 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:33:22Z Reading 1100.29 above upper threshold 1100.00
+2026-04-04 19:33:22 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:33:22Z mensaje=Reading 1100.29 above upper threshold 1100.00
+2026-04-04 19:33:26 [INFO] TX LIST
+2026-04-04 19:33:26 [INFO] RX RESPONSE 200 5 1 vibration 4.95 2 temperature 23.27 3 humidity 32.45 4 pressure 985.33 5 energy 144.40
+2026-04-04 19:33:26 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:33:31 [INFO] TX LIST
+2026-04-04 19:33:31 [INFO] RX RESPONSE 200 5 1 vibration 2.96 2 temperature 19.01 3 humidity 35.15 4 pressure 1013.93 5 energy 125.94
+2026-04-04 19:33:31 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:33:36 [INFO] TX LIST
+2026-04-04 19:33:36 [INFO] RX RESPONSE 200 5 1 vibration 3.32 2 temperature 25.58 3 humidity 42.28 4 pressure 973.98 5 energy 216.95
+2026-04-04 19:33:36 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:33:41 [INFO] TX LIST
+2026-04-04 19:33:41 [INFO] RX RESPONSE 200 5 1 vibration 11.69 2 temperature 15.10 3 humidity 62.61 4 pressure 1019.92 5 energy 140.97
+2026-04-04 19:33:41 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:33:46 [INFO] TX LIST
+2026-04-04 19:33:46 [INFO] RX RESPONSE 200 5 1 vibration 2.91 2 temperature 21.00 3 humidity 96.23 4 pressure 950.74 5 energy 296.45
+2026-04-04 19:33:46 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:33:51 [INFO] TX LIST
+2026-04-04 19:33:51 [INFO] RX RESPONSE 200 5 1 vibration 2.80 2 temperature 33.08 3 humidity 98.01 4 pressure 964.75 5 energy 858.04
+2026-04-04 19:33:51 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:33:56 [INFO] TX LIST
+2026-04-04 19:33:56 [INFO] RX RESPONSE 200 5 1 vibration 0.02 2 temperature 31.42 3 humidity 32.34 4 pressure 1001.87 5 energy 162.46
+2026-04-04 19:33:56 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:34:01 [INFO] TX LIST
+2026-04-04 19:34:01 [INFO] RX RESPONSE 200 5 1 vibration 3.24 2 temperature 18.48 3 humidity 51.21 4 pressure 986.67 5 energy 246.27
+2026-04-04 19:34:01 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:34:06 [INFO] TX LIST
+2026-04-04 19:34:06 [INFO] RX RESPONSE 200 5 1 vibration 1.61 2 temperature 22.13 3 humidity 62.28 4 pressure 1024.83 5 energy 283.61
+2026-04-04 19:34:06 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:34:07 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:34:07Z Reading 1166.87 above upper threshold 1100.00
+2026-04-04 19:34:07 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:34:07Z mensaje=Reading 1166.87 above upper threshold 1100.00
+2026-04-04 19:34:11 [INFO] TX LIST
+2026-04-04 19:34:11 [INFO] RX RESPONSE 200 5 1 vibration 2.95 2 temperature 26.74 3 humidity 61.92 4 pressure 1166.87 5 energy 332.59
+2026-04-04 19:34:11 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:34:16 [INFO] TX LIST
+2026-04-04 19:34:16 [INFO] RX RESPONSE 200 5 1 vibration 0.40 2 temperature 17.11 3 humidity 54.22 4 pressure 995.61 5 energy 389.74
+2026-04-04 19:34:16 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:34:17 [INFO] RX ALERT 4 BATCH_MISS 2026-04-05T00:34:17Z Sensor missed a batch, on watchlist
+2026-04-04 19:34:17 [INFO] Alerta push recibida sensor=4 tipo=BATCH_MISS timestamp=2026-04-05T00:34:17Z mensaje=Sensor missed a batch, on watchlist
+2026-04-04 19:34:21 [INFO] TX LIST
+2026-04-04 19:34:21 [INFO] RX RESPONSE 200 5 1 vibration 2.07 2 temperature 17.01 3 humidity 39.53 4 pressure 1019.85 5 energy 344.10
+2026-04-04 19:34:21 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:34:26 [INFO] TX LIST
+2026-04-04 19:34:26 [INFO] RX RESPONSE 200 5 1 vibration 4.11 2 temperature 25.59 3 humidity 49.04 4 pressure 1030.14 5 energy 229.80
+2026-04-04 19:34:26 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:34:27 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:34:27Z Reading 1139.01 above upper threshold 1100.00
+2026-04-04 19:34:27 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:34:27Z mensaje=Reading 1139.01 above upper threshold 1100.00
+2026-04-04 19:34:31 [INFO] TX LIST
+2026-04-04 19:34:31 [INFO] RX RESPONSE 200 5 1 vibration 0.36 2 temperature 33.66 3 humidity 47.06 4 pressure 983.31 5 energy 327.24
+2026-04-04 19:34:31 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:34:36 [INFO] TX LIST
+2026-04-04 19:34:36 [INFO] RX RESPONSE 200 5 1 vibration 3.57 2 temperature 32.14 3 humidity 67.66 4 pressure 1030.47 5 energy 707.78
+2026-04-04 19:34:36 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:34:37 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:34:37Z Reading 1105.64 above upper threshold 1100.00
+2026-04-04 19:34:37 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:34:37Z mensaje=Reading 1105.64 above upper threshold 1100.00
+2026-04-04 19:34:37 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:34:37Z Reading 1198.39 above upper threshold 1100.00
+2026-04-04 19:34:37 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:34:37Z mensaje=Reading 1198.39 above upper threshold 1100.00
+2026-04-04 19:34:41 [INFO] TX LIST
+2026-04-04 19:34:41 [INFO] RX RESPONSE 200 5 1 vibration 0.37 2 temperature 27.04 3 humidity 60.62 4 pressure 976.29 5 energy 111.06
+2026-04-04 19:34:41 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:34:46 [INFO] TX LIST
+2026-04-04 19:34:46 [INFO] RX RESPONSE 200 5 1 vibration 14.34 2 temperature 16.63 3 humidity 36.88 4 pressure 1020.97 5 energy 168.61
+2026-04-04 19:34:46 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:34:51 [INFO] TX LIST
+2026-04-04 19:34:51 [INFO] RX RESPONSE 200 5 1 vibration 1.32 2 temperature 30.81 3 humidity 98.08 4 pressure 1023.28 5 energy 180.87
+2026-04-04 19:34:51 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:34:52 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:34:52Z Reading 1166.47 above upper threshold 1100.00
+2026-04-04 19:34:52 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:34:52Z mensaje=Reading 1166.47 above upper threshold 1100.00
+2026-04-04 19:34:56 [INFO] TX LIST
+2026-04-04 19:34:56 [INFO] RX RESPONSE 200 5 1 vibration 2.07 2 temperature 61.68 3 humidity 35.13 4 pressure 1166.47 5 energy 241.27
+2026-04-04 19:34:56 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:35:01 [INFO] TX LIST
+2026-04-04 19:35:01 [INFO] RX RESPONSE 200 5 1 vibration 14.30 2 temperature 33.01 3 humidity 41.99 4 pressure 966.71 5 energy 367.54
+2026-04-04 19:35:01 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:35:02 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:35:02Z Reading 1148.59 above upper threshold 1100.00
+2026-04-04 19:35:02 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:35:02Z mensaje=Reading 1148.59 above upper threshold 1100.00
+2026-04-04 19:35:06 [INFO] TX LIST
+2026-04-04 19:35:06 [INFO] RX RESPONSE 200 5 1 vibration 0.79 2 temperature 60.32 3 humidity 58.56 4 pressure 1148.59 5 energy 308.19
+2026-04-04 19:35:06 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:35:11 [INFO] TX LIST
+2026-04-04 19:35:11 [INFO] RX RESPONSE 200 5 1 vibration 3.68 2 temperature 20.20 3 humidity 36.51 4 pressure 1016.21 5 energy 130.62
+2026-04-04 19:35:11 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:35:16 [INFO] TX LIST
+2026-04-04 19:35:16 [INFO] RX RESPONSE 200 5 1 vibration 0.51 2 temperature 18.24 3 humidity 39.37 4 pressure 989.03 5 energy 141.37
+2026-04-04 19:35:16 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:35:17 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:35:17Z Reading 1125.66 above upper threshold 1100.00
+2026-04-04 19:35:17 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:35:17Z mensaje=Reading 1125.66 above upper threshold 1100.00
+2026-04-04 19:35:21 [INFO] TX LIST
+2026-04-04 19:35:21 [INFO] RX RESPONSE 200 5 1 vibration 1.49 2 temperature 54.82 3 humidity 55.92 4 pressure 988.79 5 energy 764.11
+2026-04-04 19:35:21 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:35:22 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:35:22Z Reading 1149.83 above upper threshold 1100.00
+2026-04-04 19:35:22 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:35:22Z mensaje=Reading 1149.83 above upper threshold 1100.00
+2026-04-04 19:35:26 [INFO] TX LIST
+2026-04-04 19:35:26 [INFO] RX RESPONSE 200 5 1 vibration 0.49 2 temperature 71.43 3 humidity 60.44 4 pressure 1149.83 5 energy 175.57
+2026-04-04 19:35:26 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:35:31 [INFO] TX LIST
+2026-04-04 19:35:31 [INFO] RX RESPONSE 200 5 1 vibration 0.88 2 temperature 16.51 3 humidity 48.25 4 pressure 1023.36 5 energy 373.56
+2026-04-04 19:35:31 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:35:36 [INFO] TX LIST
+2026-04-04 19:35:36 [INFO] RX RESPONSE 200 5 1 vibration 1.76 2 temperature 23.00 3 humidity 40.09 4 pressure 1016.27 5 energy 194.29
+2026-04-04 19:35:36 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:35:41 [INFO] TX LIST
+2026-04-04 19:35:41 [INFO] RX RESPONSE 200 5 1 vibration 3.39 2 temperature 62.57 3 humidity 56.52 4 pressure 989.10 5 energy 306.42
+2026-04-04 19:35:41 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:35:46 [INFO] TX LIST
+2026-04-04 19:35:46 [INFO] RX RESPONSE 200 5 1 vibration 13.53 2 temperature 33.60 3 humidity 58.37 4 pressure 956.24 5 energy 209.79
+2026-04-04 19:35:46 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:35:51 [INFO] TX LIST
+2026-04-04 19:35:51 [INFO] RX RESPONSE 200 5 1 vibration 4.83 2 temperature 21.47 3 humidity 42.93 4 pressure 988.31 5 energy 386.63
+2026-04-04 19:35:51 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:35:56 [INFO] TX LIST
+2026-04-04 19:35:56 [INFO] RX RESPONSE 200 5 1 vibration 4.75 2 temperature 33.73 3 humidity 61.51 4 pressure 991.92 5 energy 236.42
+2026-04-04 19:35:56 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:36:01 [INFO] TX LIST
+2026-04-04 19:36:01 [INFO] RX RESPONSE 200 5 1 vibration 0.14 2 temperature 30.36 3 humidity 85.82 4 pressure 983.65 5 energy 135.21
+2026-04-04 19:36:01 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:36:06 [INFO] TX LIST
+2026-04-04 19:36:06 [INFO] RX RESPONSE 200 5 1 vibration 2.52 2 temperature 34.75 3 humidity 39.98 4 pressure 1017.37 5 energy 315.03
+2026-04-04 19:36:06 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:36:11 [INFO] TX LIST
+2026-04-04 19:36:11 [INFO] RX RESPONSE 200 5 1 vibration 2.09 2 temperature 22.37 3 humidity 50.43 4 pressure 1027.71 5 energy 347.64
+2026-04-04 19:36:11 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:36:16 [INFO] TX LIST
+2026-04-04 19:36:16 [INFO] RX RESPONSE 200 5 1 vibration 3.35 2 temperature 26.01 3 humidity 61.84 4 pressure 1027.67 5 energy 271.29
+2026-04-04 19:36:16 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:36:21 [INFO] TX LIST
+2026-04-04 19:36:21 [INFO] RX RESPONSE 200 5 1 vibration 3.35 2 temperature 19.38 3 humidity 41.38 4 pressure 1010.14 5 energy 182.83
+2026-04-04 19:36:21 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:36:26 [INFO] TX LIST
+2026-04-04 19:36:26 [INFO] RX RESPONSE 200 5 1 vibration 3.91 2 temperature 32.50 3 humidity 57.31 4 pressure 1016.42 5 energy 314.60
+2026-04-04 19:36:26 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:36:31 [INFO] TX LIST
+2026-04-04 19:36:31 [INFO] RX RESPONSE 200 5 1 vibration 12.93 2 temperature 18.21 3 humidity 66.31 4 pressure 970.97 5 energy 788.55
+2026-04-04 19:36:31 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:36:36 [INFO] TX LIST
+2026-04-04 19:36:36 [INFO] RX RESPONSE 200 5 1 vibration 0.37 2 temperature 29.16 3 humidity 55.46 4 pressure 950.81 5 energy 194.65
+2026-04-04 19:36:36 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:36:37 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:36:37Z Reading 1156.69 above upper threshold 1100.00
+2026-04-04 19:36:37 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:36:37Z mensaje=Reading 1156.69 above upper threshold 1100.00
+2026-04-04 19:36:41 [INFO] TX LIST
+2026-04-04 19:36:41 [INFO] RX RESPONSE 200 5 1 vibration 2.22 2 temperature 20.31 3 humidity 48.68 4 pressure 1156.69 5 energy 379.67
+2026-04-04 19:36:41 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:36:42 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:36:42Z Reading 1199.48 above upper threshold 1100.00
+2026-04-04 19:36:42 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:36:42Z mensaje=Reading 1199.48 above upper threshold 1100.00
+2026-04-04 19:36:46 [INFO] TX LIST
+2026-04-04 19:36:46 [INFO] RX RESPONSE 200 5 1 vibration 0.19 2 temperature 18.95 3 humidity 39.64 4 pressure 1037.41 5 energy 368.20
+2026-04-04 19:36:46 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:36:51 [INFO] TX LIST
+2026-04-04 19:36:51 [INFO] RX RESPONSE 200 5 1 vibration 2.35 2 temperature 26.31 3 humidity 30.62 4 pressure 987.96 5 energy 168.75
+2026-04-04 19:36:51 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:36:56 [INFO] TX LIST
+2026-04-04 19:36:56 [INFO] RX RESPONSE 200 5 1 vibration 4.59 2 temperature 30.63 3 humidity 45.16 4 pressure 1008.42 5 energy 297.92
+2026-04-04 19:36:56 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:37:01 [INFO] TX LIST
+2026-04-04 19:37:01 [INFO] RX RESPONSE 200 5 1 vibration 4.09 2 temperature 26.63 3 humidity 67.68 4 pressure 973.95 5 energy 765.90
+2026-04-04 19:37:01 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:37:06 [INFO] TX LIST
+2026-04-04 19:37:06 [INFO] RX RESPONSE 200 5 1 vibration 1.63 2 temperature 25.79 3 humidity 38.98 4 pressure 1016.89 5 energy 384.52
+2026-04-04 19:37:06 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:37:11 [INFO] TX LIST
+2026-04-04 19:37:11 [INFO] RX RESPONSE 200 5 1 vibration 2.60 2 temperature 15.02 3 humidity 60.61 4 pressure 968.47 5 energy 298.65
+2026-04-04 19:37:11 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:37:12 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:37:12Z Reading 1143.99 above upper threshold 1100.00
+2026-04-04 19:37:12 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:37:12Z mensaje=Reading 1143.99 above upper threshold 1100.00
+2026-04-04 19:37:16 [INFO] TX LIST
+2026-04-04 19:37:16 [INFO] RX RESPONSE 200 5 1 vibration 2.05 2 temperature 19.82 3 humidity 39.94 4 pressure 950.80 5 energy 290.29
+2026-04-04 19:37:16 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:37:17 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:37:17Z Reading 1139.94 above upper threshold 1100.00
+2026-04-04 19:37:17 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:37:17Z mensaje=Reading 1139.94 above upper threshold 1100.00
+2026-04-04 19:37:21 [INFO] TX LIST
+2026-04-04 19:37:21 [INFO] RX RESPONSE 200 5 1 vibration 0.09 2 temperature 31.92 3 humidity 41.45 4 pressure 968.39 5 energy 186.97
+2026-04-04 19:37:21 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:37:26 [INFO] TX LIST
+2026-04-04 19:37:26 [INFO] RX RESPONSE 200 5 1 vibration 4.30 2 temperature 27.58 3 humidity 62.98 4 pressure 1038.03 5 energy 313.58
+2026-04-04 19:37:26 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:37:31 [INFO] TX LIST
+2026-04-04 19:37:31 [INFO] RX RESPONSE 200 5 1 vibration 3.15 2 temperature 17.92 3 humidity 38.82 4 pressure 1015.34 5 energy 354.64
+2026-04-04 19:37:31 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:37:36 [INFO] TX LIST
+2026-04-04 19:37:36 [INFO] RX RESPONSE 200 5 1 vibration 1.34 2 temperature 33.39 3 humidity 31.20 4 pressure 951.72 5 energy 379.76
+2026-04-04 19:37:36 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:37:37 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:37:37Z Reading 1172.53 above upper threshold 1100.00
+2026-04-04 19:37:37 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:37:37Z mensaje=Reading 1172.53 above upper threshold 1100.00
+2026-04-04 19:37:41 [INFO] TX LIST
+2026-04-04 19:37:41 [INFO] RX RESPONSE 200 5 1 vibration 2.45 2 temperature 21.18 3 humidity 98.71 4 pressure 971.17 5 energy 306.38
+2026-04-04 19:37:41 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:37:42 [INFO] RX ALERT 4 ABNORMAL_READING 2026-04-05T00:37:42Z Reading 1124.66 above upper threshold 1100.00
+2026-04-04 19:37:42 [INFO] Alerta push recibida sensor=4 tipo=ABNORMAL_READING timestamp=2026-04-05T00:37:42Z mensaje=Reading 1124.66 above upper threshold 1100.00
+2026-04-04 19:37:46 [INFO] TX LIST
+2026-04-04 19:37:46 [INFO] RX RESPONSE 200 5 1 vibration 1.63 2 temperature 23.71 3 humidity 30.04 4 pressure 1124.66 5 energy 384.45
+2026-04-04 19:37:46 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:37:51 [INFO] TX LIST
+2026-04-04 19:37:51 [INFO] RX RESPONSE 200 5 1 vibration 3.25 2 temperature 32.31 3 humidity 67.04 4 pressure 987.03 5 energy 393.52
+2026-04-04 19:37:51 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:37:56 [INFO] TX LIST
+2026-04-04 19:37:56 [INFO] RX RESPONSE 200 5 1 vibration 0.26 2 temperature 17.66 3 humidity 43.23 4 pressure 1010.73 5 energy 345.65
+2026-04-04 19:37:56 [INFO] Datos actualizados: sensores=5, filtro=all
+2026-04-04 19:38:01 [INFO] TX LIST
+2026-04-04 19:38:01 [INFO] RX RESPONSE 200 5 1 vibration 4.23 2 temperature 32.99 3 humidity 88.89 4 pressure 953.42 5 energy 108.60
+2026-04-04 19:38:01 [INFO] Datos actualizados: sensores=5, filtro=all
