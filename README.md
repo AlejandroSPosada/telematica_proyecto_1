@@ -162,7 +162,7 @@ Todos los servicios se localizan mediante resolución de nombres de dominio DNS,
 
 **Justificación:** El enunciado requiere usar Amazon Route 53 para la gestión DNS. Se configuró una Hosted Zone en Route 53 cumpliendo ese requisito académico, pero las cuentas de AWS Academy tienen permisos limitados que impiden registrar dominios públicos dentro de la plataforma.
 
-Como solución práctica se usó Duck DNS, un servicio gratuito de DNS dinámico que cumple el mismo propósito técnico: asociar un nombre de dominio a la IP de la instancia EC2. Esto es necesario porque AWS Academy asigna una IP diferente cada vez que la instancia se reinicia. Con Duck DNS el dominio telematica-iot-monitoring.duckdns.org siempre apunta a la IP correcta sin modificar el código.
+Como solución práctica se usó Duck DNS, un servicio gratuito de DNS dinámico que cumple el mismo propósito técnico: asociar un nombre de dominio a la IP de la instancia EC2. Esto es necesario porque AWS Academy asigna una IP diferente cada vez que la instancia se reinicia. Con Duck DNS el dominio `telematica-iot-monitoring.duckdns.org` siempre apunta a la IP correcta sin modificar el código.
 
 En ningún punto del sistema se usan IPs directas, todo se resuelve por nombre de dominio.
 
