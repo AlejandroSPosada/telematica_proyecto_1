@@ -133,10 +133,10 @@ Todos los servicios se localizan mediante resolución de nombres de dominio DNS,
   - Servidor HTTP: Puerto 8081
   - Servicio Auth: Puerto 9090 (interno)
 
-### Teknologías Utilizadas
+### Tecnologías Utilizadas
 - **AWS (Amazon Web Services)**
   - Instancia EC2 para cómputo
-  - Route 53 para gestión DNS (Hosted Zone configurada, aunque con registro global limitado por permisos de lab)
+  - Route 53 (Hosted Zone configurada como requisito académico; no se usó como solución final debido a restricciones de permisos en AWS Academy que impidieron el registro del dominio)
   - Configuración de Security Groups
   
 - **Docker & Docker Compose**
@@ -166,7 +166,7 @@ Como solución práctica se usó Duck DNS, un servicio gratuito de DNS dinámico
 
 En ningún punto del sistema se usan IPs directas, todo se resuelve por nombre de dominio.
 
-Duck DNS fue seleccionado como proveedor de DNS dinámico porque:
+Como resumen, Duck DNS fue seleccionado como proveedor de DNS dinámico porque:
 1. Servicio gratuito y confiable
 2. Propagación instantánea de cambios DNS (vs 24-48h de Route 53)
 3. Fácil actualización de registros
